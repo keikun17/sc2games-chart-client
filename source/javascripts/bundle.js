@@ -57,13 +57,13 @@
 	
 	console.log('Bundle is loaded na yo');
 	
-	var a = () => {
-	  console.log("ES6 works");
+	var a = function a() {
+	  console.log("ESa6s wakoko works");
 	};
 	
 	console.log(a());
 	
-	var run = function () {
+	var run = function run() {
 	  // ReactDom.render(
 	  //   <AppRootComponent /> , mountnode
 	  // );
