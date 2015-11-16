@@ -1,0 +1,22 @@
+{
+  "name": "middleman4-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./source/javascripts/entry.js",
+  "scripts": {
+    "test": "mocha --opts ./tests/javascripts/mocha.opts --compilers js:babel/register --recursive tests/javascripts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-preset-stage-0": "^6.1.18",
+    "chai": "^3.4.1",
+    "flux": "^2.1.1",
+    "mocha": "^2.3.3",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "sinon": "^1.17.2",
+    "webpack": "^1.12.4"
+  }
+}
