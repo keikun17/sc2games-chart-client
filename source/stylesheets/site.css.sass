@@ -1,12 +1,22 @@
 @charset "utf-8"
 @import "normalize"
 
+@mixin boxed
+  border: 1px solid #414141
+  justify-content: center
+  flex-direction: column
+
 body
   color: #414141
+  margin: 0
+  display: flex
+  align-items: center
+  justify-content: center
 
 .content
   padding: 20px
   display: flex
+  width: 1100px
 
 profile-container
   padding-right: 30px
@@ -16,15 +26,35 @@ stats-container
   flex-direction: column
   width: 100%
 
+.section-title
+  border: 1px solid #414141
+  display: block
+  background-color: #EEE
+  font-size: 1.4em
+  padding: 10px
+
+.section-content
+  padding: 5px 10px
+
+.stat-value
+  font-size: 1.6em
+
 .summary
   display: flex
+  justify-content: space-between
 
 recentgames
   flex: 1 1
-  // align-self: stretch
+  margin-right: 30px
+  @include boxed
+
+games_count
+  display: block
+  margin-bottom: 10px
+  @include boxed
 
 miscstats
-  flex: 1 1 
+  flex: 1 1
   // align-self: stretch
 
 grid
