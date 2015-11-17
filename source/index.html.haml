@@ -11,16 +11,11 @@
   %stats-container
     .summary
       %recentgames
-        .section-title Last 10
+        .section-title Last 20
 
         %ul
-          %li 1v1 Lost Temple (WIN)
-          %li 1v1 Lost Temple (WIN)
-          %li 1v1 Lost Temple (WIN)
-          %li 1v1 Lost Temple (WIN)
-          %li 1v1 Lost Temple (WIN)
-          %li 1v1 Lost Temple (WIN)
-          %li 1v1 Lost Temple (WIN)
+          - 20.times do 
+            %li 1v1 Lost Temple (WIN)
 
       %miscstats
         %games_count
@@ -37,6 +32,9 @@
 
 
     %grid
+      .section-title
+        Games History
+
       %box.l1
       %box.w3
       %box.l2
