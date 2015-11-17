@@ -1,8 +1,10 @@
 @charset "utf-8"
 @import "normalize"
 
+$border-color: #a1a1a1
+
 @mixin boxed
-  border: 1px solid #414141
+  border: 1px solid $border-color
   justify-content: center
   flex-direction: column
 
@@ -27,7 +29,7 @@ stats-container
   width: 100%
 
 .section-title
-  border-bottom: 1px solid #414141
+  border-bottom: 1px solid $border-color
   display: block
   background-color: #EEE
   font-size: 1.4em
@@ -62,13 +64,13 @@ miscstats
 grid
   width: 100%
   heigh: 50vh
-  border: 1px solid #414141
+  border: 1px solid $border-color
 
 box
   display: inline-block
   width: 10px
   height: 10px
-  border: 1px solid black
+  border: 1px solid $border-color
 
   &.w1
     background-color: hsla(113, 100%,86%, 1)
