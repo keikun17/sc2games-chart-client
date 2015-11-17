@@ -1,6 +1,9 @@
 @charset "utf-8"
 @import "normalize"
 
+body
+  color: #414141
+
 .content
   padding: 20px
   display: flex
@@ -8,10 +11,25 @@
 profile-container
   padding-right: 30px
 
+stats-container
+  display: flex
+  flex-direction: column
+  width: 100%
+
+.summary
+  display: flex
+
+recentgames
+  flex: 1 1
+  // align-self: stretch
+
+miscstats
+  flex: 1 1 
+  // align-self: stretch
+
 grid
   width: 100%
   heigh: 50vh
-
 
 box
   display: inline-block

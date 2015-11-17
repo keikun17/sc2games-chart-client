@@ -2523,3 +2523,1178 @@ LiveReload: File changed - stylesheets/site.css.sass
 == LiveReloading path: /stylesheets/site.css
 == Request: /stylesheets/site.css
 == Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): index.html.haml
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - index.html.haml
+== LiveReloading path: /
+== Request: /
+== Finishing Request: index.html (0.09s)
+== Request: /
+== Finishing Request: index.html (0.06s)
+== LiveReload browser disconnected
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== LiveReload browser disconnected
+== Change (#<Set: {:source}>): index.html.haml
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - index.html.haml
+== LiveReloading path: /
+== Activating: file_watcher
+== Activating: front_matter
+== Activating: data
+== Activating: sprockets
+== Activating: compass
+== Activating: sitemap_ignore
+== Activating: sitemap_ondisk
+== Activating: sitemap_endpoint
+== Activating: sitemap_proxies
+== Activating: sitemap_redirects
+== Activating: show_exceptions
+== Activating: external_helpers
+== Activating: erb_renderer
+== Activating: coffee_renderer
+== Activating: haml_renderer
+== Activating: sass_renderer
+== Activating: markdown_renderer
+== Failed Activation `liquid_renderer` : cannot load such file -- liquid
+== Failed Activation `slim_renderer` : cannot load such file -- slim
+== Failed Activation `less_renderer` : cannot load such file -- less
+== Failed Activation `stylus_renderer` : cannot load such file -- stylus
+== Activating: default_helpers
+== Activating: lorem
+== Activating: routing
+== Activating: collections
+== Change (#<Set: {:source}>): images/background.png
+== Change (#<Set: {:source}>): images/middleman-logo.svg
+== Change (#<Set: {:source}>): images/middleman.png
+== Change (#<Set: {:source}>): index.html.haml
+== Change (#<Set: {:source}>): javascripts/all.js
+== Change (#<Set: {:source}>): javascripts/bundle.js
+== Change (#<Set: {:source}>): javascripts/bundle.map
+== Change (#<Set: {:source}>): javascripts/entry.es6
+== Change (#<Set: {:source}>): javascripts/flux/actions/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/components/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/constants/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/stores/.gitkeep
+== Change (#<Set: {:source}>): layouts/layout.erb
+== Change (#<Set: {:source}>): stylesheets/_normalize.scss
+== Change (#<Set: {:source}>): stylesheets/all.css
+== Change (#<Set: {:source}>): stylesheets/normalize.css
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Reading: Local config: config.rb
+== Activating: external_pipeline
+== Activating: livereload
+Loaded extensions:
+== Extension: file_watcher
+== Extension: front_matter
+== Extension: data
+== Extension: sprockets
+== Extension: compass
+== Extension: sitemap_ignore
+== Extension: sitemap_ondisk
+== Extension: sitemap_endpoint
+== Extension: sitemap_proxies
+== Extension: sitemap_redirects
+== Extension: show_exceptions
+== Extension: external_helpers
+== Extension: erb_renderer
+== Extension: coffee_renderer
+== Extension: haml_renderer
+== Extension: sass_renderer
+== Extension: markdown_renderer
+== Extension: default_helpers
+== Extension: lorem
+== Extension: routing
+== Extension: collections
+== Extension: external_pipeline instance_0
+== Extension: livereload
+== Change (#<Set: {:source}>): images/background.png
+== Change (#<Set: {:source}>): images/middleman-logo.svg
+== Change (#<Set: {:source}>): images/middleman.png
+== Change (#<Set: {:source}>): index.html.haml
+== Change (#<Set: {:source}>): javascripts/all.js
+== Change (#<Set: {:source}>): javascripts/bundle.js
+== Change (#<Set: {:source}>): javascripts/bundle.map
+== Change (#<Set: {:source}>): javascripts/entry.es6
+== Change (#<Set: {:source}>): javascripts/flux/actions/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/components/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/constants/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/stores/.gitkeep
+== Change (#<Set: {:source}>): layouts/layout.erb
+== Change (#<Set: {:source}>): stylesheets/_normalize.scss
+== Change (#<Set: {:source}>): stylesheets/all.css
+== Change (#<Set: {:source}>): stylesheets/normalize.css
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+== Executing: `webpack --watch -d --progress --color`
+== LiveReload accepting connections from ws://192.168.1.6:35729
+== Request: /
+== Finishing Request: index.html (0.12s)
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== Request: /favicon.ico
+== LiveReload browser disconnected
+== Activating: file_watcher
+== Activating: front_matter
+== Activating: data
+== Activating: sprockets
+== Activating: compass
+== Activating: sitemap_ignore
+== Activating: sitemap_ondisk
+== Activating: sitemap_endpoint
+== Activating: sitemap_proxies
+== Activating: sitemap_redirects
+== Activating: show_exceptions
+== Activating: external_helpers
+== Activating: erb_renderer
+== Activating: coffee_renderer
+== Activating: haml_renderer
+== Activating: sass_renderer
+== Activating: markdown_renderer
+== Failed Activation `liquid_renderer` : cannot load such file -- liquid
+== Failed Activation `slim_renderer` : cannot load such file -- slim
+== Failed Activation `less_renderer` : cannot load such file -- less
+== Failed Activation `stylus_renderer` : cannot load such file -- stylus
+== Activating: default_helpers
+== Activating: lorem
+== Activating: routing
+== Activating: collections
+== Change (#<Set: {:source}>): images/background.png
+== Change (#<Set: {:source}>): images/middleman-logo.svg
+== Change (#<Set: {:source}>): images/middleman.png
+== Change (#<Set: {:source}>): index.html.haml
+== Change (#<Set: {:source}>): javascripts/all.js
+== Change (#<Set: {:source}>): javascripts/bundle.js
+== Change (#<Set: {:source}>): javascripts/bundle.map
+== Change (#<Set: {:source}>): javascripts/entry.es6
+== Change (#<Set: {:source}>): javascripts/flux/actions/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/components/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/constants/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/stores/.gitkeep
+== Change (#<Set: {:source}>): layouts/layout.erb
+== Change (#<Set: {:source}>): stylesheets/_normalize.scss
+== Change (#<Set: {:source}>): stylesheets/all.css
+== Change (#<Set: {:source}>): stylesheets/normalize.css
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Reading: Local config: config.rb
+== Activating: external_pipeline
+== Activating: livereload
+Loaded extensions:
+== Extension: file_watcher
+== Extension: front_matter
+== Extension: data
+== Extension: sprockets
+== Extension: compass
+== Extension: sitemap_ignore
+== Extension: sitemap_ondisk
+== Extension: sitemap_endpoint
+== Extension: sitemap_proxies
+== Extension: sitemap_redirects
+== Extension: show_exceptions
+== Extension: external_helpers
+== Extension: erb_renderer
+== Extension: coffee_renderer
+== Extension: haml_renderer
+== Extension: sass_renderer
+== Extension: markdown_renderer
+== Extension: default_helpers
+== Extension: lorem
+== Extension: routing
+== Extension: collections
+== Extension: external_pipeline instance_0
+== Extension: livereload
+== Change (#<Set: {:source}>): images/background.png
+== Change (#<Set: {:source}>): images/middleman-logo.svg
+== Change (#<Set: {:source}>): images/middleman.png
+== Change (#<Set: {:source}>): index.html.haml
+== Change (#<Set: {:source}>): javascripts/all.js
+== Change (#<Set: {:source}>): javascripts/bundle.js
+== Change (#<Set: {:source}>): javascripts/bundle.map
+== Change (#<Set: {:source}>): javascripts/entry.es6
+== Change (#<Set: {:source}>): javascripts/flux/actions/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/components/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/constants/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/stores/.gitkeep
+== Change (#<Set: {:source}>): layouts/layout.erb
+== Change (#<Set: {:source}>): stylesheets/_normalize.scss
+== Change (#<Set: {:source}>): stylesheets/all.css
+== Change (#<Set: {:source}>): stylesheets/normalize.css
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+== Executing: `webpack --watch -d --progress --color`
+== LiveReload accepting connections from ws://192.168.1.6:35729
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== Request: /
+== Finishing Request: index.html (0.12s)
+== LiveReload browser disconnected
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== External: Hash: [1m0b8e32b08add86b6ff3d[22m
+== External: Version: webpack [1m1.12.4[22m
+== External: Time: [1m15234[22mms
+== External:      [1mAsset[22m    [1mSize[22m  [1mChunks[22m  [1m[22m           [1mChunk Names[22m
+== External:  [1m[32mbundle.js[39m[22m  718 kB       [1m0[22m  [1m[32m[emitted][39m[22m  main
+== External: [1m[32mbundle.map[39m[22m  795 kB       [1m0[22m  [1m[32m[emitted][39m[22m  main
+== External:     + 159 hidden modules
+== Change (#<Set: {:source}>): javascripts/bundle.js
+== Change (#<Set: {:source}>): javascripts/bundle.map
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - javascripts/bundle.js
+== LiveReloading path: /javascripts/bundle.js
+LiveReload: File changed - javascripts/bundle.map
+== LiveReloading path: /javascripts/bundle.map
+== Request: /
+== Finishing Request: index.html (0.09s)
+== LiveReload browser disconnected
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== Change (#<Set: {:source}>): index.html.haml
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - index.html.haml
+== LiveReloading path: /
+== Request: /
+== Finishing Request: index.html (0.27s)
+== LiveReload browser disconnected
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== Change (#<Set: {:source}>): index.html.haml
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - index.html.haml
+== LiveReloading path: /
+== Request: /
+== Finishing Request: index.html (0.12s)
+== LiveReload browser disconnected
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== Request: /
+== Finishing Request: index.html (0.17s)
+== Request: /
+== Finishing Request: index.html (0.07s)
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== Request: /favicon.ico
+== Request: /stylesheets/site.css
+== Request: /javascripts/bundle.map
+== Finishing Request: stylesheets/site.css (0.0s)
+== Finishing Request: javascripts/bundle.map (0.0s)
+== Request: /
+== Finishing Request: index.html (0.22s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== Request: /
+== Finishing Request: index.html (0.06s)
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /
+== Finishing Request: index.html (0.04s)
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /
+== Finishing Request: index.html (0.04s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /
+== Finishing Request: index.html (0.04s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== LiveReload browser disconnected
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Change (#<Set: {:source}>): index.html.haml
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - index.html.haml
+== LiveReloading path: /
+== Request: /
+== Finishing Request: index.html (0.09s)
+== Request: /javascripts/bundle.js
+== Request: /stylesheets/site.css
+== Finishing Request: javascripts/bundle.js (0.0s)
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== Request: /
+== Finishing Request: index.html (0.09s)
+== Request: /javascripts/bundle.js
+== Request: /stylesheets/site.css
+== Finishing Request: javascripts/bundle.js (0.0s)
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== Change (#<Set: {:source}>): index.html.haml
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - index.html.haml
+== LiveReloading path: /
+== Request: /
+== Finishing Request: index.html (0.08s)
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== Change (#<Set: {:source}>): index.html.haml
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - index.html.haml
+== LiveReloading path: /
+== Activating: file_watcher
+== Activating: front_matter
+== Activating: data
+== Activating: sprockets
+== Activating: compass
+== Activating: sitemap_ignore
+== Activating: sitemap_ondisk
+== Activating: sitemap_endpoint
+== Activating: sitemap_proxies
+== Activating: sitemap_redirects
+== Activating: show_exceptions
+== Activating: external_helpers
+== Activating: erb_renderer
+== Activating: coffee_renderer
+== Activating: haml_renderer
+== Activating: sass_renderer
+== Activating: markdown_renderer
+== Failed Activation `liquid_renderer` : cannot load such file -- liquid
+== Failed Activation `slim_renderer` : cannot load such file -- slim
+== Failed Activation `less_renderer` : cannot load such file -- less
+== Failed Activation `stylus_renderer` : cannot load such file -- stylus
+== Activating: default_helpers
+== Activating: lorem
+== Activating: routing
+== Activating: collections
+== Change (#<Set: {:source}>): images/background.png
+== Change (#<Set: {:source}>): images/middleman-logo.svg
+== Change (#<Set: {:source}>): images/middleman.png
+== Change (#<Set: {:source}>): index.html.haml
+== Change (#<Set: {:source}>): javascripts/all.js
+== Change (#<Set: {:source}>): javascripts/bundle.js
+== Change (#<Set: {:source}>): javascripts/bundle.map
+== Change (#<Set: {:source}>): javascripts/entry.es6
+== Change (#<Set: {:source}>): javascripts/flux/actions/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/components/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/constants/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/stores/.gitkeep
+== Change (#<Set: {:source}>): layouts/layout.erb
+== Change (#<Set: {:source}>): stylesheets/_normalize.scss
+== Change (#<Set: {:source}>): stylesheets/all.css
+== Change (#<Set: {:source}>): stylesheets/normalize.css
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Reading: Local config: config.rb
+== Activating: external_pipeline
+== Activating: livereload
+Loaded extensions:
+== Extension: file_watcher
+== Extension: front_matter
+== Extension: data
+== Extension: sprockets
+== Extension: compass
+== Extension: sitemap_ignore
+== Extension: sitemap_ondisk
+== Extension: sitemap_endpoint
+== Extension: sitemap_proxies
+== Extension: sitemap_redirects
+== Extension: show_exceptions
+== Extension: external_helpers
+== Extension: erb_renderer
+== Extension: coffee_renderer
+== Extension: haml_renderer
+== Extension: sass_renderer
+== Extension: markdown_renderer
+== Extension: default_helpers
+== Extension: lorem
+== Extension: routing
+== Extension: collections
+== Extension: external_pipeline instance_0
+== Extension: livereload
+== Change (#<Set: {:source}>): images/background.png
+== Change (#<Set: {:source}>): images/middleman-logo.svg
+== Change (#<Set: {:source}>): images/middleman.png
+== Change (#<Set: {:source}>): index.html.haml
+== Change (#<Set: {:source}>): javascripts/all.js
+== Change (#<Set: {:source}>): javascripts/bundle.js
+== Change (#<Set: {:source}>): javascripts/bundle.map
+== Change (#<Set: {:source}>): javascripts/entry.es6
+== Change (#<Set: {:source}>): javascripts/flux/actions/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/components/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/constants/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/stores/.gitkeep
+== Change (#<Set: {:source}>): layouts/layout.erb
+== Change (#<Set: {:source}>): stylesheets/_normalize.scss
+== Change (#<Set: {:source}>): stylesheets/all.css
+== Change (#<Set: {:source}>): stylesheets/normalize.css
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+== Executing: `webpack --watch -d --progress --color`
+== LiveReload accepting connections from ws://10.126.45.139:35729
+== External: Hash: [1m0b8e32b08add86b6ff3d[22m
+== External: Version: webpack [1m1.12.4[22m
+== External: Time: [1m16843[22mms
+== External:      [1mAsset[22m    [1mSize[22m  [1mChunks[22m  [1m[22m           [1mChunk Names[22m
+== External:  [1m[32mbundle.js[39m[22m  718 kB       [1m0[22m  [1m[32m[emitted][39m[22m  main
+== External: [1m[32mbundle.map[39m[22m  795 kB       [1m0[22m  [1m[32m[emitted][39m[22m  main
+== External:     + 159 hidden modules
+== Change (#<Set: {:source}>): javascripts/bundle.js
+== Change (#<Set: {:source}>): javascripts/bundle.map
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - javascripts/bundle.js
+== LiveReloading path: /javascripts/bundle.js
+LiveReload: File changed - javascripts/bundle.map
+== LiveReloading path: /javascripts/bundle.map
+== Change (#<Set: {:source}>): index.html.haml
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - index.html.haml
+== LiveReloading path: /
+== Request: /
+== Finishing Request: index.html (0.04s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== LiveReload browser disconnected
+== Activating: file_watcher
+== Activating: front_matter
+== Activating: data
+== Activating: sprockets
+== Activating: compass
+== Activating: sitemap_ignore
+== Activating: sitemap_ondisk
+== Activating: sitemap_endpoint
+== Activating: sitemap_proxies
+== Activating: sitemap_redirects
+== Activating: show_exceptions
+== Activating: external_helpers
+== Activating: erb_renderer
+== Activating: coffee_renderer
+== Activating: haml_renderer
+== Activating: sass_renderer
+== Activating: markdown_renderer
+== Failed Activation `liquid_renderer` : cannot load such file -- liquid
+== Failed Activation `slim_renderer` : cannot load such file -- slim
+== Failed Activation `less_renderer` : cannot load such file -- less
+== Failed Activation `stylus_renderer` : cannot load such file -- stylus
+== Activating: default_helpers
+== Activating: lorem
+== Activating: routing
+== Activating: collections
+== Change (#<Set: {:source}>): images/background.png
+== Change (#<Set: {:source}>): images/middleman-logo.svg
+== Change (#<Set: {:source}>): images/middleman.png
+== Change (#<Set: {:source}>): index.html.haml
+== Change (#<Set: {:source}>): javascripts/all.js
+== Change (#<Set: {:source}>): javascripts/bundle.js
+== Change (#<Set: {:source}>): javascripts/bundle.map
+== Change (#<Set: {:source}>): javascripts/entry.es6
+== Change (#<Set: {:source}>): javascripts/flux/actions/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/components/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/constants/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/stores/.gitkeep
+== Change (#<Set: {:source}>): layouts/layout.erb
+== Change (#<Set: {:source}>): stylesheets/_normalize.scss
+== Change (#<Set: {:source}>): stylesheets/all.css
+== Change (#<Set: {:source}>): stylesheets/normalize.css
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Reading: Local config: config.rb
+== Activating: external_pipeline
+== Activating: livereload
+Loaded extensions:
+== Extension: file_watcher
+== Extension: front_matter
+== Extension: data
+== Extension: sprockets
+== Extension: compass
+== Extension: sitemap_ignore
+== Extension: sitemap_ondisk
+== Extension: sitemap_endpoint
+== Extension: sitemap_proxies
+== Extension: sitemap_redirects
+== Extension: show_exceptions
+== Extension: external_helpers
+== Extension: erb_renderer
+== Extension: coffee_renderer
+== Extension: haml_renderer
+== Extension: sass_renderer
+== Extension: markdown_renderer
+== Extension: default_helpers
+== Extension: lorem
+== Extension: routing
+== Extension: collections
+== Extension: external_pipeline instance_0
+== Extension: livereload
+== Change (#<Set: {:source}>): images/background.png
+== Change (#<Set: {:source}>): images/middleman-logo.svg
+== Change (#<Set: {:source}>): images/middleman.png
+== Change (#<Set: {:source}>): index.html.haml
+== Change (#<Set: {:source}>): javascripts/all.js
+== Change (#<Set: {:source}>): javascripts/bundle.js
+== Change (#<Set: {:source}>): javascripts/bundle.map
+== Change (#<Set: {:source}>): javascripts/entry.es6
+== Change (#<Set: {:source}>): javascripts/flux/actions/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/components/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/constants/.gitkeep
+== Change (#<Set: {:source}>): javascripts/flux/stores/.gitkeep
+== Change (#<Set: {:source}>): layouts/layout.erb
+== Change (#<Set: {:source}>): stylesheets/_normalize.scss
+== Change (#<Set: {:source}>): stylesheets/all.css
+== Change (#<Set: {:source}>): stylesheets/normalize.css
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+== Executing: `webpack --watch -d --progress --color`
+== LiveReload accepting connections from ws://10.126.45.139:35729
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== External: Hash: [1m0b8e32b08add86b6ff3d[22m
+== External: Version: webpack [1m1.12.4[22m
+== External: Time: [1m14403[22mms
+== External:      [1mAsset[22m    [1mSize[22m  [1mChunks[22m  [1m[22m           [1mChunk Names[22m
+== External:  [1m[32mbundle.js[39m[22m  718 kB       [1m0[22m  [1m[32m[emitted][39m[22m  main
+== External: [1m[32mbundle.map[39m[22m  795 kB       [1m0[22m  [1m[32m[emitted][39m[22m  main
+== External:     + 159 hidden modules
+== Change (#<Set: {:source}>): javascripts/bundle.js
+== Change (#<Set: {:source}>): javascripts/bundle.map
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - javascripts/bundle.js
+== LiveReloading path: /javascripts/bundle.js
+LiveReload: File changed - javascripts/bundle.map
+== LiveReloading path: /javascripts/bundle.map
+== Request: /
+== Finishing Request: index.html (0.09s)
+== LiveReload browser disconnected
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== Change (#<Set: {:source}>): index.html.haml
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - index.html.haml
+== LiveReloading path: /
+== Request: /
+== Finishing Request: index.html (0.04s)
+== LiveReload browser disconnected
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /
+== Finishing Request: index.html (0.09s)
+== LiveReload browser disconnected
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): index.html.haml
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - index.html.haml
+== LiveReloading path: /
+== Request: /
+== Finishing Request: index.html (0.04s)
+== LiveReload browser disconnected
+== Request: /stylesheets/site.css
+== Request: /javascripts/bundle.js
+== Finishing Request: stylesheets/site.css (0.0s)
+== Finishing Request: javascripts/bundle.js (0.0s)
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /
+== Finishing Request: index.html (0.06s)
+== Request: /stylesheets/site.css
+== LiveReload browser disconnected
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== Request: /
+== Finishing Request: index.html (0.04s)
+== LiveReload browser disconnected
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Request: /javascripts/bundle.js
+== Finishing Request: javascripts/bundle.js (0.0s)
+== LiveReload browser connected
+LiveReload Browser URL: {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8"}
+== Request: /javascripts/bundle.map
+== Finishing Request: javascripts/bundle.map (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
+== Change (#<Set: {:source}>): stylesheets/site.css.sass
+== Rebuilding resource list
+== Running manipulator: sitemap_ondisk
+== Running manipulator: sitemap_endpoint
+== Running manipulator: sitemap_proxies
+== Running manipulator: sitemap_redirects
+== Running manipulator: front_matter
+== Running manipulator: sprockets
+== Running manipulator: routing
+== Running manipulator: collections
+LiveReload: File changed - stylesheets/site.css.sass
+== LiveReloading path: /stylesheets/site.css
+== Request: /stylesheets/site.css
+== Finishing Request: stylesheets/site.css (0.0s)
