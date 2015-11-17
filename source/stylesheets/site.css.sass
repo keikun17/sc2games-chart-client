@@ -3,11 +3,6 @@
 
 $border-color: #a1a1a1
 
-@mixin boxed
-  border: 1px solid $border-color
-  justify-content: center
-  flex-direction: column
-
 body
   color: #414141
   margin: 0
@@ -45,27 +40,40 @@ stats-container
 .summary
   display: flex
   justify-content: space-between
-  margin-bottom: 20px
+  border: 1px solid $border-color
 
 recentgames
   flex: 1 1
   margin-right: 30px
-  @include boxed
-
-games_count
-  display: block
-  margin-bottom: 10px
-  @include boxed
+  // @mixin boxed
+  //   border: 1px solid $border-color
+  //   justify-content: center
+  //   flex-direction: column
+  // @include boxed
 
 miscstats
+  display: flex
+  width: 100%
+
+games_count
   flex: 1 1
-  // align-self: stretch
+  display: block
+  border-right: 1px solid $border-color
+
+games_streak
+  flex: 1 1
+  display: block
+
 
 grid
   width: 100%
   heigh: 50vh
   border: 1px solid $border-color
+  border-top: 0
+  // margin-bottom: 30px
 
+.games-history-heading
+  text-align: center
 box
   display: inline-block
   width: 10px
