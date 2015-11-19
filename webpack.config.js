@@ -1,5 +1,11 @@
+var path = require('path')
 module.exports = {
-  entry: "./source/javascripts/entry.es6",
+  entry: [
+    // Set up an es6-ish environment
+    "babel-polyfill",
+
+    // Application's entrypoint
+    "./source/javascripts/entry.es6"],
   output: {
     path: "./source/javascripts",
     filename: "bundle.js",
@@ -13,8 +19,9 @@ module.exports = {
       // React and ES6
       {
         test: /\.(jsx|js|es6)$/,
+        include: path.join(__dirname, "source/javascripts"),
         exclude: /(node_modules|bower_components)/,
-        loader: "babel"
+        loader: "babel-loader",
       }
 
     ]
