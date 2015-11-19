@@ -1,10 +1,6 @@
-var React = require('react');
-var ReactDom = require('react-dom')
-// var AppRootComponent = require('./components/app_root_component');
-
-var mountnode = document.getElementById('app');
-
-console.log('Bundle is loaded na yo')
+import React from 'react'
+import ReactDom from 'react-dom'
+import App from './flux/components/app'
 
 var a = () => {
   console.log("ESa6s wakoko works")
@@ -14,12 +10,12 @@ console.log(a())
 
 
 var run = function(){
-  // ReactDom.render(
-  //   <AppRootComponent /> , mountnode
-  // );
-
-};
-
+  console.log("app started")
+  var mountnode = document.getElementById('app');
+  ReactDom.render(
+    <App /> , mountnode
+  )
+}
 
 if (window.addEventListener) {
   window.addEventListener('DOMContentLoaded', run);
