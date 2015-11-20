@@ -25916,7 +25916,21 @@
 	  function App(props) {
 	    _classCallCheck(this, App);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+	
+	    var date_pointer = new Date();
+	    var dates = [];
+	
+	    for (var i = 0; i < 365; i += 1) {
+	      var year = date_pointer.getFullYear();
+	      var month = date_pointer.getMonth() + 1;
+	      var day = date_pointer.getDate();
+	      dates.push([year, month, day].join('-'));
+	      date_pointer.setDate(date_pointer.getDate() - 1);
+	    }
+	
+	    _this.state = { dates: dates };
+	    return _this;
 	  }
 	
 	  _createClass(App, [{
