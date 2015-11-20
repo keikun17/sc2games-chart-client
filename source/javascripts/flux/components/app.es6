@@ -1,4 +1,5 @@
 import React from 'react'
+import Box from './box'
 export default class App extends React.Component  {
   constructor(props) {
     super(props)
@@ -36,46 +37,16 @@ export default class App extends React.Component  {
     }
 
     this.state = {dates: dates, most_played: most_played}
-
-    console.log(this.state)
   }
 
   render() {
 
-    var box_classnames = ['l1', 'l2', 'l3', 'w1', 'w2', 'w3', 'none' ]
     var boxes = []
 
     for (var date in this.state.dates){
-      var random_classname = box_classnames[Math.floor(Math.random()*box_classnames.length)]
-
       var games_played = this.state.dates[date].games.length
-      var classname
 
-      var l1_max = this.state.most_played / 4
-      var l2_max = l1_max * 2
-      var l3_max = l1_max * 3
-
-      if( 1 <= games_played && games_played <= l1_max ) {
-        classname = 'l1'
-      }
-
-      if( l1_max <= games_played && games_played <= l2_max ) {
-        classname = 'l2'
-      }
-
-      if( l2_max <= games_played && games_played <= l3_max ) {
-        classname = 'l3'
-      }
-
-      if( l3_max <= games_played && games_played <= this.state.most_played ) {
-        classname = 'l4'
-      }
-
-      if(games_played === 0) {
-        classname = 'none'
-      }
-
-      boxes.push(<box className={classname} key={date}></box>)
+      boxes.push(<Box key={date} games_played={games_played} most_played={this.state.most_played}/>)
     }
 
     return <div className="content">

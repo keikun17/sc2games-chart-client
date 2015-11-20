@@ -25902,6 +25902,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _box = __webpack_require__(/*! ./box */ 350);
+	
+	var _box2 = _interopRequireDefault(_box);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25952,8 +25956,6 @@
 	    }
 	
 	    _this.state = { dates: dates, most_played: most_played };
-	
-	    console.log(_this.state);
 	    return _this;
 	  }
 	
@@ -25961,40 +25963,12 @@
 	    key: 'render',
 	    value: function render() {
 	
-	      var box_classnames = ['l1', 'l2', 'l3', 'w1', 'w2', 'w3', 'none'];
 	      var boxes = [];
 	
 	      for (var date in this.state.dates) {
-	        var random_classname = box_classnames[Math.floor(Math.random() * box_classnames.length)];
-	
 	        var games_played = this.state.dates[date].games.length;
-	        var classname;
 	
-	        var l1_max = this.state.most_played / 4;
-	        var l2_max = l1_max * 2;
-	        var l3_max = l1_max * 3;
-	
-	        if (1 <= games_played && games_played <= l1_max) {
-	          classname = 'l1';
-	        }
-	
-	        if (l1_max <= games_played && games_played <= l2_max) {
-	          classname = 'l2';
-	        }
-	
-	        if (l2_max <= games_played && games_played <= l3_max) {
-	          classname = 'l3';
-	        }
-	
-	        if (l3_max <= games_played && games_played <= this.state.most_played) {
-	          classname = 'l4';
-	        }
-	
-	        if (games_played === 0) {
-	          classname = 'none';
-	        }
-	
-	        boxes.push(_react2.default.createElement('box', { className: classname, key: date }));
+	        boxes.push(_react2.default.createElement(_box2.default, { key: date, games_played: games_played, most_played: this.state.most_played }));
 	      }
 	
 	      return _react2.default.createElement(
@@ -26195,6 +26169,82 @@
 	})(_react2.default.Component);
 	
 	exports.default = App;
+
+/***/ },
+/* 350 */
+/*!****************************************************!*\
+  !*** ./source/javascripts/flux/components/box.es6 ***!
+  \****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 192);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Box = (function (_React$Component) {
+	  _inherits(Box, _React$Component);
+	
+	  function Box(props) {
+	    _classCallCheck(this, Box);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Box).call(this, props));
+	  }
+	
+	  _createClass(Box, [{
+	    key: 'render',
+	    value: function render() {
+	      var most_played = this.props.most_played;
+	      var games_played = this.props.games_played;
+	      var classname;
+	
+	      var l1_max = most_played / 4;
+	      var l2_max = l1_max * 2;
+	      var l3_max = l1_max * 3;
+	
+	      if (1 <= games_played && games_played <= l1_max) {
+	        classname = 'l1';
+	      }
+	
+	      if (l1_max <= games_played && games_played <= l2_max) {
+	        classname = 'l2';
+	      }
+	
+	      if (l2_max <= games_played && games_played <= l3_max) {
+	        classname = 'l3';
+	      }
+	
+	      if (l3_max <= games_played && games_played <= most_played) {
+	        classname = 'l4';
+	      }
+	
+	      if (games_played === 0) {
+	        classname = 'none';
+	      }
+	
+	      return _react2.default.createElement('box', { className: classname });
+	    }
+	  }]);
+	
+	  return Box;
+	})(_react2.default.Component);
+	
+	exports.default = Box;
 
 /***/ }
 /******/ ]);
