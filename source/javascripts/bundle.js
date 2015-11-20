@@ -26177,7 +26177,7 @@
   \****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 	
@@ -26203,11 +26203,30 @@
 	  function Box(props) {
 	    _classCallCheck(this, Box);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Box).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Box).call(this, props));
+	
+	    _this._onMouseOver = _this._onMouseOver.bind(_this);
+	    _this._onMouseOut = _this._onMouseOut.bind(_this);
+	    _this.state = {
+	      show_tootltip: false
+	    };
+	    return _this;
 	  }
 	
 	  _createClass(Box, [{
-	    key: 'render',
+	    key: "_onMouseOver",
+	    value: function _onMouseOver() {
+	      console.log("OVER");
+	      this.setState({ show_tooltip: true });
+	    }
+	  }, {
+	    key: "_onMouseOut",
+	    value: function _onMouseOut() {
+	      console.log("OUT");
+	      this.setState({ show_tooltip: false });
+	    }
+	  }, {
+	    key: "render",
 	    value: function render() {
 	      var most_played = this.props.most_played;
 	      var games_played = this.props.games_played;
@@ -26237,7 +26256,22 @@
 	        classname = 'none';
 	      }
 	
-	      return _react2.default.createElement('box', { className: classname });
+	      var tooltip;
+	
+	      if (this.state.show_tooltip === true) {
+	        tooltip = _react2.default.createElement(
+	          "box_details",
+	          null,
+	          "Played ",
+	          this.props.games_played,
+	          " games"
+	        );
+	      }
+	      return _react2.default.createElement(
+	        "box",
+	        { className: classname, onMouseOver: this._onMouseOver, onMouseOut: this._onMouseOut },
+	        tooltip
+	      );
 	    }
 	  }]);
 	

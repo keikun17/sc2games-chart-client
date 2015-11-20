@@ -3,6 +3,20 @@ import React from 'react'
 export default class Box extends React.Component {
   constructor(props) {
     super(props)
+    this._onMouseOver = this._onMouseOver.bind(this)
+    this._onMouseOut = this._onMouseOut.bind(this)
+    this.state = {
+      show_tootltip: false
+    }
+  }
+
+  _onMouseOver() {
+    console.log("OVER")
+    this.setState({show_tooltip: true})
+  }
+  _onMouseOut() {
+    console.log("OUT")
+    this.setState({show_tooltip: false})
   }
 
   render() {
@@ -34,6 +48,13 @@ export default class Box extends React.Component {
       classname = 'none'
     }
 
-    return  <box className={classname} />
+    var tooltip
+
+    if(this.state.show_tooltip ===  true){
+      tooltip = <box_details>Played {this.props.games_played} games</box_details>
+    }
+    return  <box className={classname} onMouseOver={this._onMouseOver} onMouseOut={this._onMouseOut}>
+      {tooltip}
+    </box>
   }
 }
