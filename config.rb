@@ -45,3 +45,5 @@ activate :external_pipeline,
   name: :webpack,
   source: './tmp/dist',
   command: build? ? "webpack" : 'webpack --watch -d --progress --color'
+
+activate :autoprefixer
