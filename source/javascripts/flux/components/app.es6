@@ -46,7 +46,7 @@ export default class App extends React.Component  {
     for (var date in this.state.dates){
       var games_played = this.state.dates[date].games.length
 
-      boxes.push(<Box key={date} games_played={games_played} most_played={this.state.most_played}/>)
+      boxes.push(<Box key={date} date={date} games_played={games_played} most_played={this.state.most_played}/>)
     }
 
     return <div className="content">
