@@ -6,6 +6,9 @@ export default class App extends React.Component  {
     var date_pointer =  new Date()
     var dates = {}
     var most_played =  0
+    var current_streak = 0
+    var longest_streak = 0
+
 
     // Count games played per day, since last year
     // Record the most games played
@@ -29,14 +32,28 @@ export default class App extends React.Component  {
 
       var game_count = dates[date].games.length
 
+      // Set the Most played which should decide what color is assigned for each play-range
       if(game_count > most_played) {
         most_played = game_count
       }
 
+      // Set the Current Streak
+      if(game_count > 0) {
+        current_streak += 1
+      } else {
+        current_streak = 0
+      }
+
+      // Set Longest Streak
+      if(current_streak > longest_streak) {
+        longest_streak = current_streak
+      }
+
+
       date_pointer.setDate( date_pointer.getDate() - 1 )
     }
 
-    this.state = {dates: dates, most_played: most_played}
+    this.state = {dates: dates, most_played: most_played, longest_streak: longest_streak, current_streak: current_streak}
   }
 
   render() {
@@ -66,7 +83,15 @@ export default class App extends React.Component  {
             <games_count>
               <div className="section-title"> Games in the last year </div>
               <div className="section-content">
-                <span className="stat-value">513 total</span>
+                <span className="stat-value">#TOTAL GAMES</span>
+                <p>Nov 17, 2014 - Nov 17, 2015</p>
+              </div>
+            </games_count>
+
+            <games_count>
+              <div className="section-title">Longest Streak</div>
+              <div className="section-content">
+                <span className="stat-value">{this.state.longest_streak}</span>
                 <p>Nov 17, 2014 - Nov 17, 2015</p>
               </div>
             </games_count>
@@ -76,7 +101,7 @@ export default class App extends React.Component  {
                 Current Play Streak
               </div>
               <div className="section-content">
-                <span className="stat-value">513 days</span>
+                <span className="stat-value">{this.state.current_streak}</span>
                 <p>Nov 17, 2014 - Nov 17, 2015</p>
               </div>
             </games_streak>

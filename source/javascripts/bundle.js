@@ -25925,6 +25925,8 @@
 	    var date_pointer = new Date();
 	    var dates = {};
 	    var most_played = 0;
+	    var current_streak = 0;
+	    var longest_streak = 0;
 	
 	    // Count games played per day, since last year
 	    // Record the most games played
@@ -25948,14 +25950,27 @@
 	
 	      var game_count = dates[date].games.length;
 	
+	      // Set the Most played which should decide what color is assigned for each play-range
 	      if (game_count > most_played) {
 	        most_played = game_count;
+	      }
+	
+	      // Set the Current Streak
+	      if (game_count > 0) {
+	        current_streak += 1;
+	      } else {
+	        current_streak = 0;
+	      }
+	
+	      // Set Longest Streak
+	      if (current_streak > longest_streak) {
+	        longest_streak = current_streak;
 	      }
 	
 	      date_pointer.setDate(date_pointer.getDate() - 1);
 	    }
 	
-	    _this.state = { dates: dates, most_played: most_played };
+	    _this.state = { dates: dates, most_played: most_played, longest_streak: longest_streak, current_streak: current_streak };
 	    return _this;
 	  }
 	
@@ -26020,7 +26035,30 @@
 	                  _react2.default.createElement(
 	                    'span',
 	                    { className: 'stat-value' },
-	                    '513 total'
+	                    '#TOTAL GAMES'
+	                  ),
+	                  _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Nov 17, 2014 - Nov 17, 2015'
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'games_count',
+	                null,
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'section-title' },
+	                  'Longest Streak'
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'section-content' },
+	                  _react2.default.createElement(
+	                    'span',
+	                    { className: 'stat-value' },
+	                    this.state.longest_streak
 	                  ),
 	                  _react2.default.createElement(
 	                    'p',
@@ -26043,7 +26081,7 @@
 	                  _react2.default.createElement(
 	                    'span',
 	                    { className: 'stat-value' },
-	                    '513 days'
+	                    this.state.current_streak
 	                  ),
 	                  _react2.default.createElement(
 	                    'p',
