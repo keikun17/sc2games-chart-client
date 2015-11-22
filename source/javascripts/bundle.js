@@ -25927,6 +25927,7 @@
 	    var most_played = 0;
 	    var current_streak = 0;
 	    var longest_streak = 0;
+	    var total_games = 0;
 	
 	    // Count games played per day, since last year
 	    // Record the most games played
@@ -25967,10 +25968,19 @@
 	        longest_streak = current_streak;
 	      }
 	
+	      // Increment total games
+	      total_games = total_games + game_count;
+	
 	      date_pointer.setDate(date_pointer.getDate() - 1);
 	    }
 	
-	    _this.state = { dates: dates, most_played: most_played, longest_streak: longest_streak, current_streak: current_streak };
+	    _this.state = {
+	      dates: dates,
+	      most_played: most_played,
+	      longest_streak: longest_streak,
+	      current_streak: current_streak,
+	      total_games: total_games
+	    };
 	    return _this;
 	  }
 	
@@ -26035,7 +26045,7 @@
 	                  _react2.default.createElement(
 	                    'span',
 	                    { className: 'stat-value' },
-	                    '#TOTAL GAMES'
+	                    this.state.total_games
 	                  ),
 	                  _react2.default.createElement(
 	                    'p',

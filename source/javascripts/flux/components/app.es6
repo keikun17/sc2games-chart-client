@@ -8,6 +8,7 @@ export default class App extends React.Component  {
     var most_played =  0
     var current_streak = 0
     var longest_streak = 0
+    var total_games = 0
 
 
     // Count games played per day, since last year
@@ -50,10 +51,19 @@ export default class App extends React.Component  {
       }
 
 
+      // Increment total games
+      total_games = total_games + game_count
+
       date_pointer.setDate( date_pointer.getDate() - 1 )
     }
 
-    this.state = {dates: dates, most_played: most_played, longest_streak: longest_streak, current_streak: current_streak}
+    this.state = {
+      dates: dates,
+      most_played: most_played,
+      longest_streak: longest_streak,
+      current_streak: current_streak,
+      total_games: total_games
+    }
   }
 
   render() {
@@ -83,7 +93,7 @@ export default class App extends React.Component  {
             <games_count>
               <div className="section-title"> Games in the last year </div>
               <div className="section-content">
-                <span className="stat-value">#TOTAL GAMES</span>
+                <span className="stat-value">{this.state.total_games}</span>
                 <p>Nov 17, 2014 - Nov 17, 2015</p>
               </div>
             </games_count>
