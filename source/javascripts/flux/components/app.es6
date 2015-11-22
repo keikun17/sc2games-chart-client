@@ -93,7 +93,7 @@ export default class App extends React.Component  {
             <games_count>
               <div className="section-title"> Games in the last year </div>
               <div className="section-content">
-                <span className="stat-value">{this.state.total_games}</span>
+                <span className="stat-value">{this.state.total_games} games</span>
                 <p>Nov 17, 2014 - Nov 17, 2015</p>
               </div>
             </games_count>
@@ -101,7 +101,7 @@ export default class App extends React.Component  {
             <games_count>
               <div className="section-title">Longest Streak</div>
               <div className="section-content">
-                <span className="stat-value">{this.state.longest_streak}</span>
+                <span className="stat-value">{this.state.longest_streak} days</span>
                 <p>Nov 17, 2014 - Nov 17, 2015</p>
               </div>
             </games_count>
@@ -111,7 +111,7 @@ export default class App extends React.Component  {
                 Current Play Streak
               </div>
               <div className="section-content">
-                <span className="stat-value">{this.state.current_streak}</span>
+                <span className="stat-value">{this.state.current_streak} days</span>
                 <p>Nov 17, 2014 - Nov 17, 2015</p>
               </div>
             </games_streak>

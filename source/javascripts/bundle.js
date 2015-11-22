@@ -26045,7 +26045,8 @@
 	                  _react2.default.createElement(
 	                    'span',
 	                    { className: 'stat-value' },
-	                    this.state.total_games
+	                    this.state.total_games,
+	                    ' games'
 	                  ),
 	                  _react2.default.createElement(
 	                    'p',
@@ -26068,7 +26069,8 @@
 	                  _react2.default.createElement(
 	                    'span',
 	                    { className: 'stat-value' },
-	                    this.state.longest_streak
+	                    this.state.longest_streak,
+	                    ' days'
 	                  ),
 	                  _react2.default.createElement(
 	                    'p',
@@ -26091,7 +26093,8 @@
 	                  _react2.default.createElement(
 	                    'span',
 	                    { className: 'stat-value' },
-	                    this.state.current_streak
+	                    this.state.current_streak,
+	                    ' days'
 	                  ),
 	                  _react2.default.createElement(
 	                    'p',
