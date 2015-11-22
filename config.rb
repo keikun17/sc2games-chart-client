@@ -35,10 +35,14 @@ end
 # Build-specific configuration
 configure :build do
   # Minify CSS on build
-  # activate :minify_css
+  activate :minify_css
 
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
+
+  # Use relative URLs
+  activate :relative_assets
+  set :relative_links, true
 end
 
 activate :external_pipeline,
@@ -47,3 +51,7 @@ activate :external_pipeline,
   command: build? ? "webpack" : 'webpack --watch -d --progress --color'
 
 activate :autoprefixer
+
+# after_configuration do
+#   sprockets.append_path File.join "#{root}", 'source/components'
+# end

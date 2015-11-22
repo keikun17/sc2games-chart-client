@@ -9,8 +9,9 @@ gem 'wdm', '~> 0.1.0', platforms: [:mswin, :mingw]
 gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 
 # Middleman Gems
-gem 'middleman-sprockets', '>= 4.0.0.rc.1'
+# gem 'middleman-sprockets', '>= 4.0.0.rc.1'
 gem 'middleman-compass', '>= 4.0.0.rc.1'
 gem 'middleman', '>= 4.0.0.rc.1'
 gem 'middleman-livereload'
 gem 'middleman-autoprefixer'
+gem 'middleman-gh-pages'
