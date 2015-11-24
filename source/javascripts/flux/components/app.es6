@@ -1,37 +1,30 @@
 import React from 'react'
 import Box from './box'
 export default class App extends React.Component  {
-  constructor(props) {
-    super(props)
-    var date_pointer =  new Date()
-    var dates = {}
+  updateGrid(data) {
+    // handle requested data from server
+    console.log("KEK HANDLED DATA}")
+    console.log(data)
+
     var most_played =  0
     var current_streak = 0
     var longest_streak = 0
     var total_games = 0
+    var player_games = {}
+    var dates = this.state.dates
 
 
-    // Count games played per day, since last year
-    // Record the most games played
-    for (var i=0 ; i < 365 ; i+=1) {
-      var year    = date_pointer.getFullYear()
-      var month   = date_pointer.getMonth()+1
-      var day     = date_pointer.getDate()
+    for (var game_date in data){
+      window.game_date = game_date
 
-      var date = [year, month, day].join('-')
 
-      // TODO : Replace with actual game count call
-      // Generate game from 0 to 9
-      var random_games_count = Math.floor( (Math.random()* 10 ) )
-      var games = []
-
-      for(var j=0; j < random_games_count ; j+=1) {
-        games.push('Lost Temple 1v1 (Win)')
+      // Handle dates existing in the server that is not in the grid
+      if(typeof(dates[game_date]) === 'undefined'){
+        dates[game_date] = {games: []}
       }
 
-      dates[date] = {games: games}
-
-      var game_count = dates[date].games.length
+      dates[game_date].games = data[game_date]
+      var game_count = dates[game_date].games.length
 
       // Set the Most played which should decide what color is assigned for each play-range
       if(game_count > most_played) {
@@ -53,7 +46,51 @@ export default class App extends React.Component  {
 
       // Increment total games
       total_games = total_games + game_count
+    }
 
+    window.dates = this.state.dates
+    this.setState({
+      dates: dates,
+      most_played: most_played,
+      longest_streak: longest_streak,
+      current_streak: current_streak,
+      total_games: total_games,
+    })
+  }
+
+  componentDidMount() {
+    console.log("I SHOULD ONLE BE MOUNTED ONCE")
+
+    var scriptEl = document.createElement('script');
+    var _this = this
+    window.updateGrid = this.updateGrid.bind(_this)
+
+    scriptEl.setAttribute(
+      'src',
+      'http://10.126.45.140:3001/us/2143215/PlayerOne?callback=updateGrid'
+    )
+    document.body.appendChild(scriptEl);
+  }
+
+  constructor(props) {
+    super(props)
+    var date_pointer =  new Date()
+    var dates = {}
+    var most_played =  0
+    var current_streak = 0
+    var longest_streak = 0
+    var total_games = 0
+
+    var player_games = {}
+
+    for (var i=0 ; i < 365 ; i+=1) {
+
+      // Generate all the dates for the year
+      var year    = date_pointer.getFullYear()
+      var month   = date_pointer.getMonth()+1
+      var day     = date_pointer.getDate()
+      var date = [year, month, day].join('-')
+      dates[date] = { games: [] }
       date_pointer.setDate( date_pointer.getDate() - 1 )
     }
 
@@ -62,11 +99,13 @@ export default class App extends React.Component  {
       most_played: most_played,
       longest_streak: longest_streak,
       current_streak: current_streak,
-      total_games: total_games
+      total_games: total_games,
     }
   }
 
   render() {
+    console.log("RENDERING STATE")
+    console.log(this.state)
 
     var boxes = []
 
