@@ -26284,7 +26284,7 @@
   \****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 	
@@ -26321,19 +26321,17 @@
 	  }
 	
 	  _createClass(Box, [{
-	    key: "_onMouseOver",
+	    key: '_onMouseOver',
 	    value: function _onMouseOver() {
-	      console.log("OVER");
 	      this.setState({ show_tooltip: true });
 	    }
 	  }, {
-	    key: "_onMouseOut",
+	    key: '_onMouseOut',
 	    value: function _onMouseOut() {
-	      console.log("OUT");
 	      this.setState({ show_tooltip: false });
 	    }
 	  }, {
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      var most_played = this.props.most_played;
 	      var games_played = this.props.games_played;
@@ -26367,20 +26365,20 @@
 	
 	      if (this.state.show_tooltip === true) {
 	        tooltip = _react2.default.createElement(
-	          "box_details",
+	          'box_details',
 	          null,
-	          "Played ",
+	          'Played ',
 	          this.props.games_played,
-	          " games on ",
+	          ' games on ',
 	          _react2.default.createElement(
-	            "box_date",
+	            'box_date',
 	            null,
 	            this.props.date
 	          )
 	        );
 	      }
 	      return _react2.default.createElement(
-	        "box",
+	        'box',
 	        { className: classname, onMouseOver: this._onMouseOver, onMouseOut: this._onMouseOut },
 	        tooltip
 	      );
