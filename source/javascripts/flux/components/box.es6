@@ -11,11 +11,9 @@ export default class Box extends React.Component {
   }
 
   _onMouseOver() {
-    console.log("OVER")
     this.setState({show_tooltip: true})
   }
   _onMouseOut() {
-    console.log("OUT")
     this.setState({show_tooltip: false})
   }
 
