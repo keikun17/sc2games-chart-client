@@ -25928,11 +25928,12 @@
 	      var current_streak = 0;
 	      var longest_streak = 0;
 	      var total_games = 0;
-	      var player_games = {};
 	      var dates = this.state.dates;
+	      var player = this.state.player;
 	
-	      for (var game_date in data) {
-	        window.game_date = game_date;
+	      player.name = data.player.name;
+	      player.primary_race = data.player.primary_race;
+	      player.clan_tag = data.player.clan_tag;
 	
 	        // Handle dates existing in the server that is not in the grid
 	        if (typeof dates[game_date] === 'undefined') {
@@ -25969,7 +25970,8 @@
 	        most_played: most_played,
 	        longest_streak: longest_streak,
 	        current_streak: current_streak,
-	        total_games: total_games
+	        total_games: total_games,
+	        player: player
 	      });
 	    }
 	  }, {
@@ -25997,8 +25999,11 @@
 	    var current_streak = 0;
 	    var longest_streak = 0;
 	    var total_games = 0;
-	
-	    var player_games = {};
+	    var player = {
+	      name: "Loading",
+	      clan_tag: "Loading",
+	      primary_race: "Loading"
+	    };
 	
 	    for (var i = 0; i < 365; i += 1) {
 	
@@ -26007,6 +26012,7 @@
 	      var month = date_pointer.getMonth() + 1;
 	      var day = date_pointer.getDate();
 	      var date = [year, month, day].join('-');
+	
 	      dates[date] = { games: [] };
 	      date_pointer.setDate(date_pointer.getDate() - 1);
 	    }
@@ -26016,7 +26022,8 @@
 	      most_played: most_played,
 	      longest_streak: longest_streak,
 	      current_streak: current_streak,
-	      total_games: total_games
+	      total_games: total_games,
+	      player: player
 	    };
 	    return _this2;
 	  }
@@ -26048,7 +26055,10 @@
 	            _react2.default.createElement(
 	              'h1',
 	              null,
-	              'Buddy Magsipoc'
+	              '[',
+	              this.state.player.clan_tag,
+	              '] ',
+	              this.state.player.name
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -26057,7 +26067,7 @@
 	            _react2.default.createElement(
 	              'h2',
 	              null,
-	              'Protoss'
+	              this.state.player.primary_race
 	            )
 	          )
 	        ),
