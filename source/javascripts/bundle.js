@@ -26165,7 +26165,7 @@
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'box-container' },
-	              boxes
+	              boxes.reverse()
 	            )
 	          ),
 	          _react2.default.createElement(
