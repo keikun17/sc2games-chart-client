@@ -10,9 +10,12 @@ export default class App extends React.Component  {
     var current_streak = 0
     var longest_streak = 0
     var total_games = 0
-    var player_games = {}
     var dates = this.state.dates
+    var player = this.state.player
 
+    player.name = data.player.name
+    player.primary_race = data.player.primary_race
+    player.clan_tag = data.player.clan_tag
 
     for (var game_date in data.matches){
 
@@ -51,6 +54,7 @@ export default class App extends React.Component  {
       longest_streak: longest_streak,
       current_streak: current_streak,
       total_games: total_games,
+      player: player
     })
   }
 
@@ -77,8 +81,12 @@ export default class App extends React.Component  {
     var current_streak = 0
     var longest_streak = 0
     var total_games = 0
+    var player = {
+      name: "Loading",
+      clan_tag: "Loading",
+      primary_race: "Loading"
+    }
 
-    var player_games = {}
 
     for (var i=0 ; i < 365 ; i+=1) {
 
@@ -99,6 +107,7 @@ export default class App extends React.Component  {
       longest_streak: longest_streak,
       current_streak: current_streak,
       total_games: total_games,
+      player: player
     }
   }
 
@@ -118,10 +127,10 @@ export default class App extends React.Component  {
       <profile-container>
         <avatar/>
         <playertag>
-          <h1>Buddy Magsipoc</h1>
+          <h1>[{this.state.player.clan_tag}] {this.state.player.name}</h1>
         </playertag>
         <mainrace>
-        <h2>Protoss</h2>
+        <h2>{this.state.player.primary_race}</h2>
         </mainrace>
       </profile-container>
 
