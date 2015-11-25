@@ -25935,12 +25935,14 @@
 	      player.primary_race = data.player.primary_race;
 	      player.clan_tag = data.player.clan_tag;
 	
-	        // Handle dates existing in the server that is not in the grid
+	      for (var game_date in data.matches) {
+	
+	        // Game dates not included in the already-rendered grid locations should not be included
 	        if (typeof dates[game_date] === 'undefined') {
 	          continue;
 	        }
 	
-	        dates[game_date].games = data[game_date];
+	        dates[game_date].games = data.matches[game_date];
 	        var game_count = dates[game_date].games.length;
 	
 	        // Set the Most played which should decide what color is assigned for each play-range
@@ -26009,7 +26011,8 @@
 	
 	      // Generate all the dates for the year
 	      var year = date_pointer.getFullYear();
-	      var month = date_pointer.getMonth() + 1;
+	      var month = '' + (date_pointer.getMonth() + 1);
+	      if (month.length < 2) month = '0' + month;
 	      var day = date_pointer.getDate();
 	      var date = [year, month, day].join('-');
 	
