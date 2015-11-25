@@ -15,13 +15,9 @@ export default class App extends React.Component  {
 
 
     for (var game_date in data.matches){
-      window.game_date = game_date
 
-
-      // Handle dates existing in the server that is not in the grid
-      if(typeof(dates[game_date]) === 'undefined'){
-        dates[game_date] = {games: []}
-      }
+      // Game dates not included in the already-rendered grid locations should not be included
+      if(typeof(dates[game_date]) === 'undefined'){ continue }
 
       dates[game_date].games = data.matches[game_date]
       var game_count = dates[game_date].games.length
@@ -88,9 +84,11 @@ export default class App extends React.Component  {
 
       // Generate all the dates for the year
       var year    = date_pointer.getFullYear()
-      var month   = date_pointer.getMonth()+1
+      var month   = '' + (date_pointer.getMonth()+1)
+      if (month.length < 2) month = '0' + month;
       var day     = date_pointer.getDate()
       var date = [year, month, day].join('-')
+
       dates[date] = { games: [] }
       date_pointer.setDate( date_pointer.getDate() - 1 )
     }
