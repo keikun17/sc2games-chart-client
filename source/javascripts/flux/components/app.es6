@@ -14,7 +14,7 @@ export default class App extends React.Component  {
     var dates = this.state.dates
 
 
-    for (var game_date in data){
+    for (var game_date in data.matches){
       window.game_date = game_date
 
 
@@ -23,7 +23,7 @@ export default class App extends React.Component  {
         dates[game_date] = {games: []}
       }
 
-      dates[game_date].games = data[game_date]
+      dates[game_date].games = data.matches[game_date]
       var game_count = dates[game_date].games.length
 
       // Set the Most played which should decide what color is assigned for each play-range
@@ -67,7 +67,8 @@ export default class App extends React.Component  {
 
     scriptEl.setAttribute(
       'src',
-      'http://10.126.45.140:3001/us/2143215/PlayerOne?callback=updateGrid'
+      // 'http://10.126.45.140:3001/us/2143215/PlayerOne?callback=updateGrid'
+      'http://localhost:3001/us/2134322/LeesOo?callback=updateGrid'
     )
     document.body.appendChild(scriptEl);
   }
@@ -161,7 +162,7 @@ export default class App extends React.Component  {
         <grid>
           <div className="section-title">Games History </div>
           <div className="box-container">
-            {boxes}
+            {boxes.reverse()}
           </div>
         </grid>
 
