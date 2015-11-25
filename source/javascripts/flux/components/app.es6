@@ -70,7 +70,7 @@ export default class App extends React.Component  {
       // 'http://10.126.45.140:3001/us/2143215/PlayerOne?callback=updateGrid'
       // 'http://localhost:3001/us/2134322/LeesOo?callback=updateGrid'
       // 'http://10.126.45.140:3001/us/2134322/LeesOo?callback=updateGrid'
-      'https://afternoon-depths-7202.herokuapp.com/LeesOo?callback=updateGrid'
+      'https://afternoon-depths-7202.herokuapp.com/us/2134322/LeesOo?callback=updateGrid'
     )
     document.body.appendChild(scriptEl);
   }
