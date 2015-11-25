@@ -25937,7 +25937,7 @@
 	
 	        // Handle dates existing in the server that is not in the grid
 	        if (typeof dates[game_date] === 'undefined') {
-	          dates[game_date] = { games: [] };
+	          continue;
 	        }
 	
 	        dates[game_date].games = data[game_date];
