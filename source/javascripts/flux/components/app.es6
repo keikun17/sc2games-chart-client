@@ -3,8 +3,6 @@ import Box from './box'
 export default class App extends React.Component  {
   updateGrid(data) {
     // handle requested data from server
-    console.log("KEK HANDLED DATA}")
-    console.log(data)
 
     var most_played =  0
     var current_streak = 0
@@ -17,13 +15,16 @@ export default class App extends React.Component  {
     player.primary_race = data.profile.primary_race
     player.clan_tag = data.profile.clan_tag
 
-    for (var game_date in data.matches){
+    for (let match of data.matches){
+
+      var date = this.formatDate(new Date(match.ms_date * 1000))
 
       // Game dates not included in the already-rendered grid locations should not be included
-      if(typeof(dates[game_date]) === 'undefined'){ continue }
+      if(typeof(dates[date]) === 'undefined'){ continue }
 
-      dates[game_date].games = data.matches[game_date]
-      var game_count = dates[game_date].games.length
+      dates[date].games.push(match)
+
+      var game_count = dates[date].games.length
 
       // Set the Most played which should decide what color is assigned for each play-range
       if(game_count > most_played) {
@@ -129,9 +130,6 @@ export default class App extends React.Component  {
   }
 
   render() {
-    console.log("RENDERING STATE")
-    console.log(this.state)
-
     var boxes = []
 
     for (var date in this.state.dates){
