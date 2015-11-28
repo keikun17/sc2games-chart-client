@@ -24918,9 +24918,6 @@
 
 	          recent_games.push(recent_game);
 	          recent_games.shift();
-
-	          // Increment total games
-	          total_games = total_games + game_count;
 	        }
 
 	        // Compute for Streaks
@@ -24939,7 +24936,6 @@
 	        }
 	      }
 
-	      window.dotos = dates;
 	      for (var date in dates) {
 	        game_count = dates[date].games.length;
 	        // Set the Current Streak
@@ -24953,6 +24949,9 @@
 	        if (current_streak > longest_streak) {
 	          longest_streak = current_streak;
 	        }
+
+	        // Increment total games
+	        total_games = total_games + game_count;
 	      }
 
 	      this.setState({

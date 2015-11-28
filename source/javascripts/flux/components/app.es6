@@ -45,13 +45,10 @@ export default class App extends React.Component  {
       recent_games.push(recent_game)
       recent_games.shift()
 
-      // Increment total games
-      total_games = total_games + game_count
     }
 
 
     // Compute for Streaks
-    window.dotos = dates
     for ( var date in dates ) {
       game_count = dates[date].games.length
       // Set the Current Streak
@@ -66,6 +63,8 @@ export default class App extends React.Component  {
         longest_streak = current_streak
       }
 
+      // Increment total games
+      total_games = total_games + game_count
 
     }
 
