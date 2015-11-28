@@ -10,12 +10,13 @@ export default class App extends React.Component  {
     var total_games = 0
     var dates = this.state.dates
     var player = this.state.player
+    var recent_games = this.state.recent_games
 
     player.name = data.profile.name
     player.primary_race = data.profile.primary_race
     player.clan_tag = data.profile.clan_tag
 
-    for (let match of data.matches){
+    for (let match of data.matches.reverse()){
 
       var date = this.formatDate(new Date(match.ms_date * 1000))
 
@@ -45,6 +46,19 @@ export default class App extends React.Component  {
 
       // Increment total games
       total_games = total_games + game_count
+
+
+      // shift match history
+      var recent_game = {
+        date: date,
+        map: match.map,
+        decision: match.decision,
+        game_type: match.game_type
+      }
+
+      recent_games.push(recent_game)
+      recent_games.shift()
+
     }
 
     this.setState({
@@ -53,7 +67,8 @@ export default class App extends React.Component  {
       longest_streak: longest_streak,
       current_streak: current_streak,
       total_games: total_games,
-      player: player
+      player: player,
+      recent_games: recent_games
     })
   }
 
@@ -102,6 +117,7 @@ export default class App extends React.Component  {
     var current_streak = 0
     var longest_streak = 0
     var total_games = 0
+    var recent_games = []
     var player = {
       name: "Loading",
       clan_tag: "Loading",
@@ -111,17 +127,23 @@ export default class App extends React.Component  {
     var formatDate = this.formatDate.bind(this)
 
 
+    // Generate all the dates for the year
     for (var i=0 ; i < 365 ; i+=1) {
 
-      // Generate all the dates for the year
       var date = this.formatDate(date_pointer)
 
       dates[date] = { games: [] }
       date_pointer.setDate( date_pointer.getDate() - 1 )
     }
 
+    // Generate 25 slots for match history
+    for (var i=0 ; i < 25 ; i+=1) {
+      recent_games.push({})
+    }
+
     this.state = {
       dates: dates,
+      recent_games: recent_games,
       most_played: most_played,
       longest_streak: longest_streak,
       current_streak: current_streak,
@@ -137,6 +159,15 @@ export default class App extends React.Component  {
       var games_played = this.state.dates[date].games.length
 
       boxes.push(<Box key={date} date={date} games_played={games_played} most_played={this.state.most_played}/>)
+    }
+
+    var recent_games = []
+    for (var recent_game of this.state.recent_games) {
+      if(typeof(recent_game.map) != 'undefined') {
+        recent_games.push(
+          <li> {recent_game.date} - {recent_game.game_type} - {recent_game.map} ({recent_game.decision}) </li>
+        )
+      }
     }
 
     return <div className="content">
@@ -192,21 +223,7 @@ export default class App extends React.Component  {
         <recentgames>
           <div className="games-history-heading"><h3>Last 20</h3></div>
           <ul>
-            <li>1v1 Lost Temple (WIN)</li>
-            <li>1v1 Lost Temple (LOSS)</li>
-            <li>1v1 Lost Temple (WIN)</li>
-            <li>1v1 Lost Temple (WIN)</li>
-            <li>1v1 Lost Temple (WIN)</li>
-            <li>1v1 Lost Temple (WIN)</li>
-            <li>1v1 lost temple (win)</li>
-            <li>1v1 lost temple (win)</li>
-            <li>1v1 Lost Temple (WIN)</li>
-            <li>1v1 Lost Temple (LOSS)</li>
-            <li>1v1 Lost Temple (LOSS)</li>
-            <li>1v1 Lost Temple (WIN)</li>
-            <li>1v1 Lost Temple (WIN)</li>
-            <li>1v1 Lost Temple (WIN)</li>
-            <li>1v1 Lost Temple (WIN)</li>
+            {recent_games.reverse()}
           </ul>
         </recentgames>
 
