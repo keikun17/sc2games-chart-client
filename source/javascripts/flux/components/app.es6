@@ -77,6 +77,7 @@ export default class App extends React.Component  {
 
     scriptEl.setAttribute(
       'src',
+      // `http://10.126.45.140:3001/${region}/${player_id}/${player_name}?callback=updateGrid`
       `https://afternoon-depths-7202.herokuapp.com/${region}/${player_id}/${player_name}?callback=updateGrid`
     )
     document.body.appendChild(scriptEl);
