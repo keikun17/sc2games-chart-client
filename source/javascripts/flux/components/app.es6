@@ -13,9 +13,9 @@ export default class App extends React.Component  {
     var dates = this.state.dates
     var player = this.state.player
 
-    player.name = data.player.name
-    player.primary_race = data.player.primary_race
-    player.clan_tag = data.player.clan_tag
+    player.name = data.profile.name
+    player.primary_race = data.profile.primary_race
+    player.clan_tag = data.profile.clan_tag
 
     for (var game_date in data.matches){
 
