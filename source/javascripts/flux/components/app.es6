@@ -32,20 +32,6 @@ export default class App extends React.Component  {
         most_played = game_count
       }
 
-      // Set the Current Streak
-      if(game_count > 0) {
-        current_streak += 1
-      } else {
-      }
-
-      // Set Longest Streak
-      if(current_streak > longest_streak) {
-        longest_streak = current_streak
-      }
-
-
-      // Increment total games
-      total_games = total_games + game_count
 
 
       // shift match history
@@ -58,6 +44,28 @@ export default class App extends React.Component  {
 
       recent_games.push(recent_game)
       recent_games.shift()
+
+      // Increment total games
+      total_games = total_games + game_count
+    }
+
+
+    // Compute for Streaks
+    window.dotos = dates
+    for ( var date in dates ) {
+      game_count = dates[date].games.length
+      // Set the Current Streak
+      if(game_count > 0) {
+        current_streak += 1
+      } else {
+        current_streak = 0
+      }
+
+      // Set Longest Streak
+      if(current_streak > longest_streak) {
+        longest_streak = current_streak
+      }
+
 
     }
 
