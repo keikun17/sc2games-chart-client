@@ -46,7 +46,6 @@ export default class App extends React.Component  {
       total_games = total_games + game_count
     }
 
-    window.dates = this.state.dates
     this.setState({
       dates: dates,
       most_played: most_played,
