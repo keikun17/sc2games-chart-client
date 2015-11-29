@@ -5331,12 +5331,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var a = function a() {
-	  console.log("ESa6s wakoko works");
-	};
-
-	console.log(a());
-
 	var run = function run() {
 	  console.log("app started");
 	  var mountnode = document.getElementById('app');
@@ -24880,6 +24874,8 @@
 	      var player = this.state.player;
 	      var recent_games = this.state.recent_games;
 
+	      window.kek = this.state.dates;
+
 	      player.name = data.profile.name;
 	      player.primary_race = data.profile.primary_race;
 	      player.clan_tag = data.profile.clan_tag;
@@ -24954,6 +24950,12 @@
 	        total_games = total_games + game_count;
 	      }
 
+	      var tempdate = new Date();
+	      // var today = formatDate(tempdate)
+	      var today = tempdate.toDateString().slice(4);
+	      // var last_year = formatDate(new Date(tempdate.setFullYear((tempdate.getFullYear() - 1))))
+	      var last_year = new Date(tempdate.setFullYear(tempdate.getFullYear() - 1)).toDateString().slice(4);
+
 	      this.setState({
 	        dates: dates,
 	        most_played: most_played,
@@ -24961,7 +24963,9 @@
 	        current_streak: current_streak,
 	        total_games: total_games,
 	        player: player,
-	        recent_games: recent_games
+	        recent_games: recent_games,
+	        today: today,
+	        last_year: last_year
 	      });
 	    }
 	  }, {
@@ -25019,8 +25023,11 @@
 	      clan_tag: "Loading",
 	      primary_race: "Loading"
 	    };
+	    var today = "Loading";
+	    var last_year = "Loading";
 
 	    var formatDate = _this2.formatDate.bind(_this2);
+	    window.formatDate = _this2.formatDate;
 
 	    // Generate all the dates for the year
 	    for (var i = 0; i < 365; i += 1) {
@@ -25043,7 +25050,9 @@
 	      longest_streak: longest_streak,
 	      current_streak: current_streak,
 	      total_games: total_games,
-	      player: player
+	      player: player,
+	      today: today,
+	      last_year: last_year
 	    };
 	    return _this2;
 	  }
@@ -25157,7 +25166,9 @@
 	                  _react2.default.createElement(
 	                    'p',
 	                    null,
-	                    'Nov 17, 2014 - Nov 17, 2015'
+	                    this.state.last_year,
+	                    ' - ',
+	                    this.state.today
 	                  )
 	                )
 	              ),
@@ -25181,7 +25192,9 @@
 	                  _react2.default.createElement(
 	                    'p',
 	                    null,
-	                    'Nov 17, 2014 - Nov 17, 2015'
+	                    this.state.last_year,
+	                    ' - ',
+	                    this.state.today
 	                  )
 	                )
 	              ),
@@ -25205,7 +25218,9 @@
 	                  _react2.default.createElement(
 	                    'p',
 	                    null,
-	                    'Nov 17, 2014 - Nov 17, 2015'
+	                    this.state.last_year,
+	                    ' - ',
+	                    this.state.today
 	                  )
 	                )
 	              )
@@ -25223,6 +25238,11 @@
 	              'div',
 	              { className: 'box-container' },
 	              boxes.reverse()
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              { className: 'grid-instructions' },
+	              'Hover on the green boxes to see how many custom / ladder games you played that day'
 	            )
 	          ),
 	          _react2.default.createElement(
