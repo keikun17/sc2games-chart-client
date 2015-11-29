@@ -225,6 +225,9 @@ export default class App extends React.Component  {
           <div className="box-container">
             {boxes.reverse()}
           </div>
+          <p className="grid-instructions">
+          Hover on the green boxes to see how many custom / ladder games you played that day
+          </p>
         </grid>
 
         <recentgames>
