@@ -25167,7 +25167,7 @@
 	                _react2.default.createElement(
 	                  'div',
 	                  { className: 'section-title' },
-	                  'Longest Streak'
+	                  'Longest Play Streak'
 	                ),
 	                _react2.default.createElement(
 	                  'div',
