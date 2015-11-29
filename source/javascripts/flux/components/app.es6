@@ -12,6 +12,9 @@ export default class App extends React.Component  {
     var player = this.state.player
     var recent_games = this.state.recent_games
 
+    window.kek = this.state.dates
+
+
     player.name = data.profile.name
     player.primary_race = data.profile.primary_race
     player.clan_tag = data.profile.clan_tag
@@ -68,6 +71,12 @@ export default class App extends React.Component  {
 
     }
 
+    var tempdate = new Date()
+    // var today = formatDate(tempdate)
+    var today = tempdate.toDateString().slice(4)
+    // var last_year = formatDate(new Date(tempdate.setFullYear((tempdate.getFullYear() - 1))))
+    var last_year = (new Date(tempdate.setFullYear((tempdate.getFullYear() - 1)))).toDateString().slice(4)
+
     this.setState({
       dates: dates,
       most_played: most_played,
@@ -75,7 +84,9 @@ export default class App extends React.Component  {
       current_streak: current_streak,
       total_games: total_games,
       player: player,
-      recent_games: recent_games
+      recent_games: recent_games,
+      today: today,
+      last_year: last_year
     })
   }
 
@@ -130,9 +141,11 @@ export default class App extends React.Component  {
       clan_tag: "Loading",
       primary_race: "Loading"
     }
+    var today = "Loading"
+    var last_year = "Loading"
 
     var formatDate = this.formatDate.bind(this)
-
+    window.formatDate = this.formatDate
 
     // Generate all the dates for the year
     for (var i=0 ; i < 365 ; i+=1) {
@@ -155,7 +168,9 @@ export default class App extends React.Component  {
       longest_streak: longest_streak,
       current_streak: current_streak,
       total_games: total_games,
-      player: player
+      player: player,
+      today: today,
+      last_year: last_year
     }
   }
 
@@ -195,7 +210,7 @@ export default class App extends React.Component  {
               <div className="section-title"> Games in the last year </div>
               <div className="section-content">
                 <span className="stat-value">{this.state.total_games} games</span>
-                <p>Nov 17, 2014 - Nov 17, 2015</p>
+                <p>{this.state.last_year} - {this.state.today}</p>
               </div>
             </games_count>
 
@@ -203,7 +218,7 @@ export default class App extends React.Component  {
               <div className="section-title">Longest Play Streak</div>
               <div className="section-content">
                 <span className="stat-value">{this.state.longest_streak} days</span>
-                <p>Nov 17, 2014 - Nov 17, 2015</p>
+                <p>{this.state.last_year} - {this.state.today}</p>
               </div>
             </games_count>
 
@@ -213,7 +228,7 @@ export default class App extends React.Component  {
               </div>
               <div className="section-content">
                 <span className="stat-value">{this.state.current_streak} days</span>
-                <p>Nov 17, 2014 - Nov 17, 2015</p>
+                <p>{this.state.last_year} - {this.state.today}</p>
               </div>
             </games_streak>
           </miscstats>
