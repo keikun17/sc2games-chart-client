@@ -25020,11 +25020,11 @@
 	    var recent_games = [];
 	    var player = {
 	      name: "Loading",
-	      clan_tag: "Loading",
-	      primary_race: "Loading"
+	      clan_tag: "",
+	      primary_race: ""
 	    };
-	    var today = "Loading";
-	    var last_year = "Loading";
+	    var today = "";
+	    var last_year = "";
 
 	    var formatDate = _this2.formatDate.bind(_this2);
 	    window.formatDate = _this2.formatDate;
@@ -25108,6 +25108,11 @@
 	        }
 	      }
 
+	      var clan_tag = "";
+	      if (this.state.player.clan_tag !== "") {
+	        clan_tag = '' + this.state.player.clan_tag;
+	      }
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'content' },
@@ -25119,20 +25124,22 @@
 	            'playertag',
 	            null,
 	            _react2.default.createElement(
-	              'h1',
-	              null,
-	              '[',
-	              this.state.player.clan_tag,
-	              '] ',
+	              'span',
+	              { className: 'card-name' },
 	              this.state.player.name
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'card-clantag' },
+	              clan_tag
 	            )
 	          ),
 	          _react2.default.createElement(
 	            'mainrace',
 	            null,
 	            _react2.default.createElement(
-	              'h2',
-	              null,
+	              'span',
+	              { className: 'card-race' },
 	              this.state.player.primary_race
 	            )
 	          )
@@ -25164,8 +25171,8 @@
 	                    ' games'
 	                  ),
 	                  _react2.default.createElement(
-	                    'p',
-	                    null,
+	                    'span',
+	                    { className: 'stat-daterange' },
 	                    this.state.last_year,
 	                    ' - ',
 	                    this.state.today
@@ -25190,8 +25197,8 @@
 	                    ' days'
 	                  ),
 	                  _react2.default.createElement(
-	                    'p',
-	                    null,
+	                    'span',
+	                    { className: 'stat-daterange' },
 	                    this.state.last_year,
 	                    ' - ',
 	                    this.state.today
@@ -25216,8 +25223,8 @@
 	                    ' days'
 	                  ),
 	                  _react2.default.createElement(
-	                    'p',
-	                    null,
+	                    'span',
+	                    { className: 'stat-daterange' },
 	                    this.state.last_year,
 	                    ' - ',
 	                    this.state.today
