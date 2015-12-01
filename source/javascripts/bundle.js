@@ -25151,7 +25151,7 @@
 	            'div',
 	            { className: 'summary' },
 	            _react2.default.createElement(
-	              'miscstats',
+	              'statcards',
 	              null,
 	              _react2.default.createElement(
 	                'games_count',
@@ -25206,7 +25206,7 @@
 	                )
 	              ),
 	              _react2.default.createElement(
-	                'games_streak',
+	                'games_count',
 	                null,
 	                _react2.default.createElement(
 	                  'div',
