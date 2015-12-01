@@ -211,7 +211,7 @@ export default class App extends React.Component  {
 
       <stats-container>
         <div className="summary">
-          <miscstats>
+          <statcards>
             <games_count>
               <div className="section-title"> Games in the last year </div>
               <div className="section-content">
@@ -228,7 +228,7 @@ export default class App extends React.Component  {
               </div>
             </games_count>
 
-            <games_streak>
+            <games_count>
               <div className="section-title">
                 Current Play Streak
               </div>
@@ -236,8 +236,8 @@ export default class App extends React.Component  {
                 <span className="stat-value">{this.state.current_streak} days</span>
                 <span className="stat-daterange">{this.state.last_year} - {this.state.today}</span>
               </div>
-            </games_streak>
-          </miscstats>
+            </games_count>
+          </statcards>
         </div>
 
 

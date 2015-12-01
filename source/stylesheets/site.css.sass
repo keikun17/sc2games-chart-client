@@ -36,15 +36,15 @@ stats-container
   font-size: 1.4em
   padding: 10px
   text-align: center
-  height: 26px
+  min-height: 26px
 
 .section-content
-  text-align: center
   display: flex
-  align-item: center
+  align-items: center
   justify-content: center
   flex-direction: column
-  height: 121px
+  padding-top: 5px
+  padding-bottom: 5px
 
 
 .stat-value
@@ -79,19 +79,17 @@ recentgames
     &:last-child
       border-bottom: 0
 
-miscstats
+statcards
   display: flex
   width: 100%
 
 games_count
   flex: 1 1
-  display: block
+  display: flex
+  flex-direction: column
   border-right: 1px solid $border-color
+  // min-height: 114px
 
-games_streak
-  flex: 1 1
-  display: block
-  height: 169px
 
 // tooltip
 box_details
