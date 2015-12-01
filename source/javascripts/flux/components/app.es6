@@ -138,11 +138,11 @@ export default class App extends React.Component  {
     var recent_games = []
     var player = {
       name: "Loading",
-      clan_tag: "Loading",
-      primary_race: "Loading"
+      clan_tag: "",
+      primary_race: ""
     }
-    var today = "Loading"
-    var last_year = "Loading"
+    var today = ""
+    var last_year = ""
 
     var formatDate = this.formatDate.bind(this)
     window.formatDate = this.formatDate
