@@ -193,7 +193,6 @@ export default class App extends React.Component  {
     }
 
     var clan_tag = ""
-    console.log(this.state.player.clan_tag)
     if(this.state.player.clan_tag !== "") {
       clan_tag = `${this.state.player.clan_tag}`
     }
