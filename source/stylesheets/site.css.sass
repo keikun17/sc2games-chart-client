@@ -1,5 +1,6 @@
 @charset "utf-8"
 @import "normalize"
+@import "./components/card"
 
 $border-color: #a1a1a1
 
@@ -35,10 +36,16 @@ stats-container
   font-size: 1.4em
   padding: 10px
   text-align: center
+  height: 26px
 
 .section-content
-  padding: 10px
   text-align: center
+  display: flex
+  align-item: center
+  justify-content: center
+  flex-direction: column
+  height: 121px
+
 
 .stat-value
   font-size: 1.6em
@@ -81,6 +88,7 @@ games_count
 games_streak
   flex: 1 1
   display: block
+  height: 169px
 
 // tooltip
 box_details
