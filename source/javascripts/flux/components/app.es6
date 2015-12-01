@@ -192,14 +192,21 @@ export default class App extends React.Component  {
       }
     }
 
+    var clan_tag = ""
+    console.log(this.state.player.clan_tag)
+    if(this.state.player.clan_tag !== "") {
+      clan_tag = `${this.state.player.clan_tag}`
+    }
+
     return <div className="content">
       <profile-container>
         <avatar/>
         <playertag>
-          <h1>[{this.state.player.clan_tag}] {this.state.player.name}</h1>
+          <span className="card-name">{this.state.player.name}</span>
+          <span className="card-clantag">{clan_tag}</span>
         </playertag>
         <mainrace>
-        <h2>{this.state.player.primary_race}</h2>
+        <span className="card-race">{this.state.player.primary_race}</span>
         </mainrace>
       </profile-container>
 
