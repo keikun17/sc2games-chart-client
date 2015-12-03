@@ -1,5 +1,7 @@
 import React from 'react'
 import Box from './box'
+import app_store from './../stores/app_store'
+import app_actions from './../actions/app_actions'
 export default class App extends React.Component  {
   updateGrid(data) {
     // handle requested data from server
@@ -11,9 +13,6 @@ export default class App extends React.Component  {
     var dates = this.state.dates
     var player = this.state.player
     var recent_games = this.state.recent_games
-
-    window.kek = this.state.dates
-
 
     player.name = data.profile.name
     player.primary_race = data.profile.primary_race
@@ -34,8 +33,6 @@ export default class App extends React.Component  {
       if(game_count > most_played) {
         most_played = game_count
       }
-
-
 
       // shift match history
       var recent_game = {
@@ -90,31 +87,22 @@ export default class App extends React.Component  {
     })
   }
 
-  componentDidMount() {
-    var scriptEl = document.createElement('script');
-    var _this = this
-    window.updateGrid = this.updateGrid.bind(_this)
-
-    var gup  = ( name, url ) => {
-      if (!url) url = location.href;
-      name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-      var regexS = "[\\?&]"+name+"=([^&#]*)";
-      var regex = new RegExp( regexS );
-      var results = regex.exec( url );
-      return results == null ? null : results[1];
-    }
-
-    var region = gup('region', window.location)
-    var player_id = gup('player_id', window.location)
-    var player_name = gup('player_name', window.location)
-
-    scriptEl.setAttribute(
-      'src',
-      // `http://10.126.45.140:3001/${region}/${player_id}/${player_name}?callback=updateGrid`
-      `https://afternoon-depths-7202.herokuapp.com/${region}/${player_id}/${player_name}?callback=updateGrid`
-    )
-    document.body.appendChild(scriptEl);
-  }
+  // componentDidMount() {
+  //   var scriptEl = document.createElement('script');
+  //   var _this = this
+  //   window.updateGrid = this.updateGrid.bind(_this)
+  //
+  //   var region = this.url_params('region', window.location)
+  //   var player_id = this.url_params('player_id', window.location)
+  //   var player_name = this.url_params('player_name', window.location)
+  //
+  //   scriptEl.setAttribute(
+  //     'src',
+  //     // `http://10.126.45.140:3001/${region}/${player_id}/${player_name}?callback=updateGrid`
+  //     `https://afternoon-depths-7202.herokuapp.com/${region}/${player_id}/${player_name}?callback=updateGrid`
+  //   )
+  //   document.body.appendChild(scriptEl);
+  // }
 
 
   formatDate(date) {
@@ -127,51 +115,20 @@ export default class App extends React.Component  {
     return date
   }
 
+  url_params( name, url )  {
+    if (!url) url = location.href;
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    var regexS = "[\\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp( regexS );
+    var results = regex.exec( url );
+    return results == null ? null : results[1];
+  }
+
   constructor(props) {
     super(props)
-    var date_pointer =  new Date()
-    var dates = {}
-    var most_played =  0
-    var current_streak = 0
-    var longest_streak = 0
-    var total_games = 0
-    var recent_games = []
-    var player = {
-      name: "Loading",
-      clan_tag: "",
-      primary_race: ""
-    }
-    var today = ""
-    var last_year = ""
-
-    var formatDate = this.formatDate.bind(this)
-    window.formatDate = this.formatDate
-
-    // Generate all the dates for the year
-    for (var i=0 ; i < 365 ; i+=1) {
-
-      var date = this.formatDate(date_pointer)
-
-      dates[date] = { games: [] }
-      date_pointer.setDate( date_pointer.getDate() - 1 )
-    }
-
-    // Generate 25 slots for match history
-    for (var i=0 ; i < 25 ; i+=1) {
-      recent_games.push({})
-    }
-
-    this.state = {
-      dates: dates,
-      recent_games: recent_games,
-      most_played: most_played,
-      longest_streak: longest_streak,
-      current_streak: current_streak,
-      total_games: total_games,
-      player: player,
-      today: today,
-      last_year: last_year
-    }
+    console.log("appstore state is ")
+    console.log(app_store.getState(0))
+    this.state = app_store.getState()
   }
 
   render() {
