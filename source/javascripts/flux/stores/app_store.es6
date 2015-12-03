@@ -30,16 +30,13 @@ var formatDate = (date) => {
 
 
 var initializeState = (state) => {
-  console.log("initial states are")
-  console.log(initial_state)
-  console.log("passed in state is")
-  console.log(state)
-  console.log("action is")
-  console.log(action)
 
-  var region = action.region
-  var player_id = action.player_id
-  var player_name = action.player_name
+  // var region = action.region
+  // var player_id = action.player_id
+  // var player_name = action.player_name
+  var region = ""
+  var player_id = ""
+  var player_name = ""
 
   var most_played =  state.most_played
   var current_streak = state.curremt_streak
@@ -85,12 +82,21 @@ var initializeState = (state) => {
 }
 
 var appReducer = (state = initial_state, action) => {
+  console.log("initial states are")
+  console.log(initial_state)
+  console.log("passed in state is")
+  console.log(state)
+  console.log("action is")
+  console.log(action)
   switch(action.type) {
-    case: "@@redux/INIT":
-
+    case "@@redux/INIT":
       state = initializeState(state)
-   ca
-
+      break
+    case "urlUpdated":
+      state = {}
+      break
+    default:
+      console.log(`action.type not recognized : ${action.type}`)
   }
 
   return state
