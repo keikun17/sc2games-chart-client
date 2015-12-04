@@ -30,6 +30,8 @@ export default class App extends React.Component  {
 
   render() {
     console.log("RENDERING")
+    console.log("states are")
+    console.log(this.state)
 
     var boxes = []
 
@@ -43,7 +45,9 @@ export default class App extends React.Component  {
     for (var recent_game of this.state.recent_games) {
       if(typeof(recent_game.map) != 'undefined') {
         recent_games.push(
-          <li> {recent_game.date} - {recent_game.game_type} - {recent_game.map} ({recent_game.decision}) </li>
+          <li key={this.state.recent_games.indexOf(recent_game)}>
+            {recent_game.date} - {recent_game.game_type} - {recent_game.map} ({recent_game.decision})
+          </li>
         )
       }
     }

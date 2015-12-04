@@ -21,9 +21,6 @@ var initial_state  = {
 
 
 var initializeState = (state) => {
-  // var region = action.region
-  // var player_id = action.player_id
-  // var player_name = action.player_name
   var region = ""
   var player_id = ""
   var player_name = ""
@@ -71,7 +68,6 @@ var initializeState = (state) => {
 }
 
 var fetchNewPlayer = (state) => {
-  console.log("fetchNewPlayer called")
   var scriptEl = document.createElement('script');
 
   window.updateStateWithNewData = function(data) {
@@ -121,7 +117,6 @@ var fetchNewPlayer = (state) => {
 
     }
 
-
     // Compute for Streaks
     for ( var date in dates ) {
       game_count = dates[date].games.length
@@ -146,17 +141,16 @@ var fetchNewPlayer = (state) => {
     var today = tempdate.toDateString().slice(4)
     var last_year = (new Date(tempdate.setFullYear((tempdate.getFullYear() - 1)))).toDateString().slice(4)
 
-    state = {
-      dates: dates,
-      most_played: most_played,
-      longest_streak: longest_streak,
-      current_streak: current_streak,
-      total_games: total_games,
-      player: player,
-      recent_games: recent_games,
-      today: today,
-      last_year: last_year
-    }
+    state.dates = dates
+    state.most_played = most_played
+    state.longest_streak = longest_streak
+    state.current_streak = current_streak
+    state.total_games = total_games
+    state.player = player
+    state.recent_games = recent_games
+    state.today = today
+    state.last_year = last_year
+
     window.app_store.dispatch({type: "apply_changes"})
   }.bind(state)
 
