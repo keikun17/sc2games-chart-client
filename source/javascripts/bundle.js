@@ -5908,7 +5908,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var run = function run() {
-	  console.log("app started");
 	  var mountnode = document.getElementById('app');
 	  _reactDom2.default.render(_react2.default.createElement(_app2.default, null), mountnode);
 	};
@@ -25904,10 +25903,6 @@
 	
 	var _app_store2 = _interopRequireDefault(_app_store);
 	
-	var _app_actions = __webpack_require__(/*! ./../actions/app_actions */ 361);
-	
-	var _app_actions2 = _interopRequireDefault(_app_actions);
-	
 	var _getUrlParams = __webpack_require__(/*! ./../../libs/getUrlParams */ 363);
 	
 	var _getUrlParams2 = _interopRequireDefault(_getUrlParams);
@@ -25933,10 +25928,11 @@
 	        _this.setState(_app_store2.default.getState());
 	      });
 	
-	      var region = this.getUrlParams('region', window.location);
-	      var player_id = this.getUrlParams('player_id', window.location);
-	      var player_name = this.getUrlParams('player_name', window.location);
+	      var region = (0, _getUrlParams2.default)('region', window.location);
+	      var player_id = (0, _getUrlParams2.default)('player_id', window.location);
+	      var player_name = (0, _getUrlParams2.default)('player_name', window.location);
 	
+	      window.app_store = _app_store2.default;
 	      _app_store2.default.dispatch({ type: 'urlUpdated',
 	        region: region,
 	        player_id: player_id,
@@ -25950,8 +25946,6 @@
 	
 	    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
 	
-	    console.log("appstore state is ");
-	    console.log(_app_store2.default.getState(0));
 	    _this2.state = _app_store2.default.getState();
 	    return _this2;
 	  }
@@ -25960,8 +25954,6 @@
 	    key: 'render',
 	    value: function render() {
 	      console.log("RENDERING");
-	      console.log("current component state is");
-	      console.log(this.state);
 	
 	      var boxes = [];
 	
@@ -26315,6 +26307,10 @@
 	
 	var _formatDate2 = _interopRequireDefault(_formatDate);
 	
+	var _getUrlParams = __webpack_require__(/*! ./../../libs/getUrlParams */ 363);
+	
+	var _getUrlParams2 = _interopRequireDefault(_getUrlParams);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var initial_state = {
@@ -26384,119 +26380,124 @@
 	  };
 	};
 	
-	var updateGrid = function updateGrid(data) {
-	  // handle requested data from server
-	
-	  var most_played = 0;
-	  var current_streak = 0;
-	  var longest_streak = 0;
-	  var total_games = 0;
-	  var dates = undefined.state.dates;
-	  var player = undefined.state.player;
-	  var recent_games = undefined.state.recent_games;
-	
-	  player.name = data.profile.name;
-	  player.primary_race = data.profile.primary_race;
-	  player.clan_tag = data.profile.clan_tag;
-	
-	  var _iteratorNormalCompletion = true;
-	  var _didIteratorError = false;
-	  var _iteratorError = undefined;
-	
-	  try {
-	    for (var _iterator = data.matches.reverse()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	      var match = _step.value;
-	
-	      var date = undefined.formatDate(new Date(match.ms_date * 1000));
-	
-	      // Game dates not included in the already-rendered grid locations should not be included
-	      if (typeof dates[date] === 'undefined') {
-	        continue;
-	      }
-	
-	      dates[date].games.push(match);
-	
-	      var game_count = dates[date].games.length;
-	
-	      // Set the Most played which should decide what color is assigned for each play-range
-	      if (game_count > most_played) {
-	        most_played = game_count;
-	      }
-	
-	      // shift match history
-	      var recent_game = {
-	        date: date,
-	        map: match.map,
-	        decision: match.decision,
-	        game_type: match.game_type
-	      };
-	
-	      recent_games.push(recent_game);
-	      recent_games.shift();
-	    }
-	
-	    // Compute for Streaks
-	  } catch (err) {
-	    _didIteratorError = true;
-	    _iteratorError = err;
-	  } finally {
-	    try {
-	      if (!_iteratorNormalCompletion && _iterator.return) {
-	        _iterator.return();
-	      }
-	    } finally {
-	      if (_didIteratorError) {
-	        throw _iteratorError;
-	      }
-	    }
-	  }
-	
-	  for (var date in dates) {
-	    game_count = dates[date].games.length;
-	    // Set the Current Streak
-	    if (game_count > 0) {
-	      current_streak += 1;
-	    } else {
-	      current_streak = 0;
-	    }
-	
-	    // Set Longest Streak
-	    if (current_streak > longest_streak) {
-	      longest_streak = current_streak;
-	    }
-	
-	    // Increment total games
-	    total_games = total_games + game_count;
-	  }
-	
-	  var tempdate = new Date();
-	  var today = tempdate.toDateString().slice(4);
-	  var last_year = new Date(tempdate.setFullYear(tempdate.getFullYear() - 1)).toDateString().slice(4);
-	
-	  undefined.setState({
-	    dates: dates,
-	    most_played: most_played,
-	    longest_streak: longest_streak,
-	    current_streak: current_streak,
-	    total_games: total_games,
-	    player: player,
-	    recent_games: recent_games,
-	    today: today,
-	    last_year: last_year
-	  });
-	};
-	var fetchNewPlayer = function fetchNewPlayer() {
+	var fetchNewPlayer = function fetchNewPlayer(state) {
+	  console.log("fetchNewPlayer called");
 	  var scriptEl = document.createElement('script');
-	  var _this = undefined;
-	  window.updateGrid = undefined.updateGrid.bind(_this);
 	
-	  var region = undefined.url_params('region', window.location);
-	  var player_id = undefined.url_params('player_id', window.location);
-	  var player_name = undefined.url_params('player_name', window.location);
+	  window.updateStateWithNewData = (function (data) {
+	    state = this;
+	    state.player.name = data.profile.name;
+	
+	    // handle requested data from server
+	
+	    var most_played = 0;
+	    var current_streak = 0;
+	    var longest_streak = 0;
+	    var total_games = 0;
+	    var dates = state.dates;
+	    var player = state.player;
+	    var recent_games = state.recent_games;
+	
+	    player.name = data.profile.name;
+	    player.primary_race = data.profile.primary_race;
+	    player.clan_tag = data.profile.clan_tag;
+	
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
+	
+	    try {
+	      for (var _iterator = data.matches.reverse()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	        var match = _step.value;
+	
+	        var date = (0, _formatDate2.default)(new Date(match.ms_date * 1000));
+	
+	        // Game dates not included in the already-rendered grid locations should not be included
+	        if (typeof dates[date] === 'undefined') {
+	          continue;
+	        }
+	
+	        dates[date].games.push(match);
+	
+	        var game_count = dates[date].games.length;
+	
+	        // Set the Most played which should decide what color is assigned for each play-range
+	        if (game_count > most_played) {
+	          most_played = game_count;
+	        }
+	
+	        // shift match history
+	        var recent_game = {
+	          date: date,
+	          map: match.map,
+	          decision: match.decision,
+	          game_type: match.game_type
+	        };
+	
+	        recent_games.push(recent_game);
+	        recent_games.shift();
+	      }
+	
+	      // Compute for Streaks
+	    } catch (err) {
+	      _didIteratorError = true;
+	      _iteratorError = err;
+	    } finally {
+	      try {
+	        if (!_iteratorNormalCompletion && _iterator.return) {
+	          _iterator.return();
+	        }
+	      } finally {
+	        if (_didIteratorError) {
+	          throw _iteratorError;
+	        }
+	      }
+	    }
+	
+	    for (var date in dates) {
+	      game_count = dates[date].games.length;
+	      // Set the Current Streak
+	      if (game_count > 0) {
+	        current_streak += 1;
+	      } else {
+	        current_streak = 0;
+	      }
+	
+	      // Set Longest Streak
+	      if (current_streak > longest_streak) {
+	        longest_streak = current_streak;
+	      }
+	
+	      // Increment total games
+	      total_games = total_games + game_count;
+	    }
+	
+	    var tempdate = new Date();
+	    var today = tempdate.toDateString().slice(4);
+	    var last_year = new Date(tempdate.setFullYear(tempdate.getFullYear() - 1)).toDateString().slice(4);
+	
+	    state = {
+	      dates: dates,
+	      most_played: most_played,
+	      longest_streak: longest_streak,
+	      current_streak: current_streak,
+	      total_games: total_games,
+	      player: player,
+	      recent_games: recent_games,
+	      today: today,
+	      last_year: last_year
+	    };
+	    window.app_store.dispatch({ type: "apply_changes" });
+	  }).bind(state);
+	
+	  var region = (0, _getUrlParams2.default)('region', window.location);
+	  var player_id = (0, _getUrlParams2.default)('player_id', window.location);
+	  var player_name = (0, _getUrlParams2.default)('player_name', window.location);
 	
 	  scriptEl.setAttribute('src',
 	  // `http://10.126.45.140:3001/${region}/${player_id}/${player_name}?callback=updateGrid`
-	  'https://afternoon-depths-7202.herokuapp.com/' + region + '/' + player_id + '/' + player_name + '?callback=updateGrid');
+	  // `https://afternoon-depths-7202.herokuapp.com/${region}/${player_id}/${player_name}?callback=updateGrid`
+	  'https://afternoon-depths-7202.herokuapp.com/' + region + '/' + player_id + '/' + player_name + '?callback=updateStateWithNewData');
 	  document.body.appendChild(scriptEl);
 	};
 	
@@ -26508,15 +26509,15 @@
 	  console.log(action);
 	  switch (action.type) {
 	    case "@@redux/INIT":
-	      console.log("initial states are");
-	      console.log(initial_state);
-	      console.log("passed in state is");
-	      console.log(state);
 	      state = initializeState(state);
 	      break;
 	    case "urlUpdated":
-	
-	      state = { player: { name: "HEY" } };
+	      fetchNewPlayer(state);
+	      break;
+	    case "apply_changes":
+	      // NOTE : Blank action. Subscribed components are only rendered when
+	      // an action has been dispatched. Call this action if you wish to apply
+	      // the changes to the state
 	      break;
 	    default:
 	      console.log('action.type not recognized : ' + action.type);
@@ -27141,27 +27142,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 361 */
-/*!*********************************************************!*\
-  !*** ./source/javascripts/flux/actions/app_actions.es6 ***!
-  \*********************************************************/
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = {
-	  updateGrid: function updateGrid(region, player_id, name) {
-	    return {
-	      type: "UpdateGrid",
-	      region: region, player_id: player_id, name: name
-	    };
-	  }
-	};
-
-/***/ },
+/* 361 */,
 /* 362 */
 /*!************************************************!*\
   !*** ./source/javascripts/libs/formatDate.es6 ***!

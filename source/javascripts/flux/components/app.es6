@@ -1,7 +1,6 @@
 import React from 'react'
 import Box from './box'
 import app_store from './../stores/app_store'
-import app_actions from './../actions/app_actions'
 import getUrlParams from './../../libs/getUrlParams'
 
 export default class App extends React.Component  {
@@ -12,10 +11,11 @@ export default class App extends React.Component  {
       this.setState(app_store.getState())
     })
 
-    var region = this.getUrlParams('region', window.location)
-    var player_id = this.getUrlParams('player_id', window.location)
-    var player_name = this.getUrlParams('player_name', window.location)
+    var region = getUrlParams('region', window.location)
+    var player_id = getUrlParams('player_id', window.location)
+    var player_name = getUrlParams('player_name', window.location)
 
+    window.app_store = app_store
     app_store.dispatch({type: 'urlUpdated',
                        region: region,
                        player_id: player_id,
@@ -25,15 +25,11 @@ export default class App extends React.Component  {
 
   constructor(props) {
     super(props)
-    console.log("appstore state is ")
-    console.log(app_store.getState(0))
     this.state = app_store.getState()
   }
 
   render() {
     console.log("RENDERING")
-    console.log("current component state is")
-    console.log(this.state)
 
     var boxes = []
 
