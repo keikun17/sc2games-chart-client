@@ -25908,6 +25908,10 @@
 	
 	var _app_actions2 = _interopRequireDefault(_app_actions);
 	
+	var _getUrlParams = __webpack_require__(/*! ./../../libs/getUrlParams */ 363);
+	
+	var _getUrlParams2 = _interopRequireDefault(_getUrlParams);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25920,165 +25924,45 @@
 	  _inherits(App, _React$Component);
 	
 	  _createClass(App, [{
-	    key: 'updateGrid',
-	    value: function updateGrid(data) {
-	      // handle requested data from server
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this = this;
 	
-	      var most_played = 0;
-	      var current_streak = 0;
-	      var longest_streak = 0;
-	      var total_games = 0;
-	      var dates = this.state.dates;
-	      var player = this.state.player;
-	      var recent_games = this.state.recent_games;
-	
-	      player.name = data.profile.name;
-	      player.primary_race = data.profile.primary_race;
-	      player.clan_tag = data.profile.clan_tag;
-	
-	      var _iteratorNormalCompletion = true;
-	      var _didIteratorError = false;
-	      var _iteratorError = undefined;
-	
-	      try {
-	        for (var _iterator = data.matches.reverse()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	          var match = _step.value;
-	
-	          var date = this.formatDate(new Date(match.ms_date * 1000));
-	
-	          // Game dates not included in the already-rendered grid locations should not be included
-	          if (typeof dates[date] === 'undefined') {
-	            continue;
-	          }
-	
-	          dates[date].games.push(match);
-	
-	          var game_count = dates[date].games.length;
-	
-	          // Set the Most played which should decide what color is assigned for each play-range
-	          if (game_count > most_played) {
-	            most_played = game_count;
-	          }
-	
-	          // shift match history
-	          var recent_game = {
-	            date: date,
-	            map: match.map,
-	            decision: match.decision,
-	            game_type: match.game_type
-	          };
-	
-	          recent_games.push(recent_game);
-	          recent_games.shift();
-	        }
-	
-	        // Compute for Streaks
-	      } catch (err) {
-	        _didIteratorError = true;
-	        _iteratorError = err;
-	      } finally {
-	        try {
-	          if (!_iteratorNormalCompletion && _iterator.return) {
-	            _iterator.return();
-	          }
-	        } finally {
-	          if (_didIteratorError) {
-	            throw _iteratorError;
-	          }
-	        }
-	      }
-	
-	      for (var date in dates) {
-	        game_count = dates[date].games.length;
-	        // Set the Current Streak
-	        if (game_count > 0) {
-	          current_streak += 1;
-	        } else {
-	          current_streak = 0;
-	        }
-	
-	        // Set Longest Streak
-	        if (current_streak > longest_streak) {
-	          longest_streak = current_streak;
-	        }
-	
-	        // Increment total games
-	        total_games = total_games + game_count;
-	      }
-	
-	      var tempdate = new Date();
-	      // var today = formatDate(tempdate)
-	      var today = tempdate.toDateString().slice(4);
-	      // var last_year = formatDate(new Date(tempdate.setFullYear((tempdate.getFullYear() - 1))))
-	      var last_year = new Date(tempdate.setFullYear(tempdate.getFullYear() - 1)).toDateString().slice(4);
-	
-	      this.setState({
-	        dates: dates,
-	        most_played: most_played,
-	        longest_streak: longest_streak,
-	        current_streak: current_streak,
-	        total_games: total_games,
-	        player: player,
-	        recent_games: recent_games,
-	        today: today,
-	        last_year: last_year
+	      _app_store2.default.subscribe(function () {
+	        console.log("CHANGE DETECTED");
+	        _this.setState(_app_store2.default.getState());
 	      });
-	    }
 	
-	    // componentDidMount() {
-	    //   var scriptEl = document.createElement('script');
-	    //   var _this = this
-	    //   window.updateGrid = this.updateGrid.bind(_this)
-	    //
-	    //   var region = this.url_params('region', window.location)
-	    //   var player_id = this.url_params('player_id', window.location)
-	    //   var player_name = this.url_params('player_name', window.location)
-	    //
-	    //   scriptEl.setAttribute(
-	    //     'src',
-	    //     // `http://10.126.45.140:3001/${region}/${player_id}/${player_name}?callback=updateGrid`
-	    //     `https://afternoon-depths-7202.herokuapp.com/${region}/${player_id}/${player_name}?callback=updateGrid`
-	    //   )
-	    //   document.body.appendChild(scriptEl);
-	    // }
+	      var region = this.getUrlParams('region', window.location);
+	      var player_id = this.getUrlParams('player_id', window.location);
+	      var player_name = this.getUrlParams('player_name', window.location);
 	
-	  }, {
-	    key: 'formatDate',
-	    value: function formatDate(date) {
-	      var year = date.getFullYear();
-	      var month = '' + (date.getMonth() + 1);
-	      if (month.length < 2) month = '0' + month;
-	      var day = date.getDate();
-	      var date = [year, month, day].join('-');
-	
-	      return date;
-	    }
-	  }, {
-	    key: 'url_params',
-	    value: function url_params(name, url) {
-	      if (!url) url = location.href;
-	      name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-	      var regexS = "[\\?&]" + name + "=([^&#]*)";
-	      var regex = new RegExp(regexS);
-	      var results = regex.exec(url);
-	      return results == null ? null : results[1];
+	      _app_store2.default.dispatch({ type: 'urlUpdated',
+	        region: region,
+	        player_id: player_id,
+	        player_name: player_name
+	      });
 	    }
 	  }]);
 	
 	  function App(props) {
 	    _classCallCheck(this, App);
 	
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+	    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
 	
 	    console.log("appstore state is ");
 	    console.log(_app_store2.default.getState(0));
-	    _this.state = _app_store2.default.getState();
-	    return _this;
+	    _this2.state = _app_store2.default.getState();
+	    return _this2;
 	  }
 	
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
+	      console.log("RENDERING");
+	      console.log("current component state is");
+	      console.log(this.state);
+	
 	      var boxes = [];
 	
 	      for (var date in this.state.dates) {
@@ -26088,13 +25972,13 @@
 	      }
 	
 	      var recent_games = [];
-	      var _iteratorNormalCompletion2 = true;
-	      var _didIteratorError2 = false;
-	      var _iteratorError2 = undefined;
+	      var _iteratorNormalCompletion = true;
+	      var _didIteratorError = false;
+	      var _iteratorError = undefined;
 	
 	      try {
-	        for (var _iterator2 = this.state.recent_games[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	          var recent_game = _step2.value;
+	        for (var _iterator = this.state.recent_games[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	          var recent_game = _step.value;
 	
 	          if (typeof recent_game.map != 'undefined') {
 	            recent_games.push(_react2.default.createElement(
@@ -26113,16 +25997,16 @@
 	          }
 	        }
 	      } catch (err) {
-	        _didIteratorError2 = true;
-	        _iteratorError2 = err;
+	        _didIteratorError = true;
+	        _iteratorError = err;
 	      } finally {
 	        try {
-	          if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	            _iterator2.return();
+	          if (!_iteratorNormalCompletion && _iterator.return) {
+	            _iterator.return();
 	          }
 	        } finally {
-	          if (_didIteratorError2) {
-	            throw _iteratorError2;
+	          if (_didIteratorError) {
+	            throw _iteratorError;
 	          }
 	        }
 	      }
@@ -26419,13 +26303,19 @@
   \******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	
 	var _redux = __webpack_require__(/*! redux */ 352);
+	
+	var _formatDate = __webpack_require__(/*! ../../libs/formatDate */ 362);
+	
+	var _formatDate2 = _interopRequireDefault(_formatDate);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var initial_state = {
 	  dates: {},
@@ -26444,18 +26334,7 @@
 	  }
 	};
 	
-	var formatDate = function formatDate(date) {
-	  var year = date.getFullYear();
-	  var month = '' + (date.getMonth() + 1);
-	  if (month.length < 2) month = '0' + month;
-	  var day = date.getDate();
-	  var date = [year, month, day].join('-');
-	
-	  return date;
-	};
-	
 	var initializeState = function initializeState(state) {
-	
 	  // var region = action.region
 	  // var player_id = action.player_id
 	  // var player_name = action.player_name
@@ -26481,7 +26360,7 @@
 	  // Generate all the dates for the year
 	  for (var i = 0; i < 365; i += 1) {
 	
-	    var date = formatDate(date_pointer);
+	    var date = (0, _formatDate2.default)(date_pointer);
 	
 	    dates[date] = { games: [] };
 	    date_pointer.setDate(date_pointer.getDate() - 1);
@@ -26505,25 +26384,142 @@
 	  };
 	};
 	
+	var updateGrid = function updateGrid(data) {
+	  // handle requested data from server
+	
+	  var most_played = 0;
+	  var current_streak = 0;
+	  var longest_streak = 0;
+	  var total_games = 0;
+	  var dates = undefined.state.dates;
+	  var player = undefined.state.player;
+	  var recent_games = undefined.state.recent_games;
+	
+	  player.name = data.profile.name;
+	  player.primary_race = data.profile.primary_race;
+	  player.clan_tag = data.profile.clan_tag;
+	
+	  var _iteratorNormalCompletion = true;
+	  var _didIteratorError = false;
+	  var _iteratorError = undefined;
+	
+	  try {
+	    for (var _iterator = data.matches.reverse()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	      var match = _step.value;
+	
+	      var date = undefined.formatDate(new Date(match.ms_date * 1000));
+	
+	      // Game dates not included in the already-rendered grid locations should not be included
+	      if (typeof dates[date] === 'undefined') {
+	        continue;
+	      }
+	
+	      dates[date].games.push(match);
+	
+	      var game_count = dates[date].games.length;
+	
+	      // Set the Most played which should decide what color is assigned for each play-range
+	      if (game_count > most_played) {
+	        most_played = game_count;
+	      }
+	
+	      // shift match history
+	      var recent_game = {
+	        date: date,
+	        map: match.map,
+	        decision: match.decision,
+	        game_type: match.game_type
+	      };
+	
+	      recent_games.push(recent_game);
+	      recent_games.shift();
+	    }
+	
+	    // Compute for Streaks
+	  } catch (err) {
+	    _didIteratorError = true;
+	    _iteratorError = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion && _iterator.return) {
+	        _iterator.return();
+	      }
+	    } finally {
+	      if (_didIteratorError) {
+	        throw _iteratorError;
+	      }
+	    }
+	  }
+	
+	  for (var date in dates) {
+	    game_count = dates[date].games.length;
+	    // Set the Current Streak
+	    if (game_count > 0) {
+	      current_streak += 1;
+	    } else {
+	      current_streak = 0;
+	    }
+	
+	    // Set Longest Streak
+	    if (current_streak > longest_streak) {
+	      longest_streak = current_streak;
+	    }
+	
+	    // Increment total games
+	    total_games = total_games + game_count;
+	  }
+	
+	  var tempdate = new Date();
+	  var today = tempdate.toDateString().slice(4);
+	  var last_year = new Date(tempdate.setFullYear(tempdate.getFullYear() - 1)).toDateString().slice(4);
+	
+	  undefined.setState({
+	    dates: dates,
+	    most_played: most_played,
+	    longest_streak: longest_streak,
+	    current_streak: current_streak,
+	    total_games: total_games,
+	    player: player,
+	    recent_games: recent_games,
+	    today: today,
+	    last_year: last_year
+	  });
+	};
+	var fetchNewPlayer = function fetchNewPlayer() {
+	  var scriptEl = document.createElement('script');
+	  var _this = undefined;
+	  window.updateGrid = undefined.updateGrid.bind(_this);
+	
+	  var region = undefined.url_params('region', window.location);
+	  var player_id = undefined.url_params('player_id', window.location);
+	  var player_name = undefined.url_params('player_name', window.location);
+	
+	  scriptEl.setAttribute('src',
+	  // `http://10.126.45.140:3001/${region}/${player_id}/${player_name}?callback=updateGrid`
+	  'https://afternoon-depths-7202.herokuapp.com/' + region + '/' + player_id + '/' + player_name + '?callback=updateGrid');
+	  document.body.appendChild(scriptEl);
+	};
+	
 	var appReducer = function appReducer() {
 	  var state = arguments.length <= 0 || arguments[0] === undefined ? initial_state : arguments[0];
 	  var action = arguments[1];
 	
-	  console.log("initial states are");
-	  console.log(initial_state);
-	  console.log("passed in state is");
-	  console.log(state);
 	  console.log("action is");
 	  console.log(action);
 	  switch (action.type) {
 	    case "@@redux/INIT":
+	      console.log("initial states are");
+	      console.log(initial_state);
+	      console.log("passed in state is");
+	      console.log(state);
 	      state = initializeState(state);
 	      break;
 	    case "urlUpdated":
-	      state = {};
+	
+	      state = { player: { name: "HEY" } };
 	      break;
 	    default:
-	      console.log("action.type not recognized : " + action.type);
+	      console.log('action.type not recognized : ' + action.type);
 	  }
 	
 	  return state;
@@ -27163,6 +27159,51 @@
 	      region: region, player_id: player_id, name: name
 	    };
 	  }
+	};
+
+/***/ },
+/* 362 */
+/*!************************************************!*\
+  !*** ./source/javascripts/libs/formatDate.es6 ***!
+  \************************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function (date) {
+	  var year = date.getFullYear();
+	  var month = '' + (date.getMonth() + 1);
+	  if (month.length < 2) month = '0' + month;
+	  var day = date.getDate();
+	  var date = [year, month, day].join('-');
+	
+	  return date;
+	};
+
+/***/ },
+/* 363 */
+/*!**************************************************!*\
+  !*** ./source/javascripts/libs/getUrlParams.es6 ***!
+  \**************************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function (name, url) {
+	  if (!url) url = location.href;
+	  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+	  var regexS = "[\\?&]" + name + "=([^&#]*)";
+	  var regex = new RegExp(regexS);
+	  var results = regex.exec(url);
+	  return results == null ? null : results[1];
 	};
 
 /***/ }
