@@ -5,7 +5,7 @@ import getUrlParams from './../../libs/getUrlParams'
 
 export default class App extends React.Component  {
 
-  componentDidMount() {
+  componentWillMount() {
     app_store.subscribe(() =>{
       console.log("CHANGE DETECTED")
       this.setState(app_store.getState())

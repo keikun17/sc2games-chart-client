@@ -25919,8 +25919,8 @@
 	  _inherits(App, _React$Component);
 	
 	  _createClass(App, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
 	      var _this = this;
 	
 	      _app_store2.default.subscribe(function () {
@@ -26331,28 +26331,26 @@
 	  }
 	};
 	
-	var initializeState = function initializeState(state) {
-	  var region = "";
-	  var player_id = "";
-	  var player_name = "";
+	var resetState = function resetState(state) {
+	  state.most_played = 0;
+	  state.current_streak = 0;
+	  state.longest_streak = 0;
+	  state.total_games = 0;
 	
-	  var most_played = state.most_played;
-	  var current_streak = state.curremt_streak;
-	  var longest_streak = state.longest_streak;
-	  var total_games = state.total_games;
-	  var dates = state.dates;
-	  var player = {
+	  state.player = {
 	    name: "Loading",
 	    clan_tag: "",
 	    primary_race: ""
 	  };
-	  var recent_games = state.recent_games;
-	  var today = "";
-	  var last_year = "";
 	
+	  state.today = "";
+	  state.last_year = "";
+	
+	  // Reset the games history for the year
+	  var dates = {};
 	  var date_pointer = new Date();
-	  // Generate all the dates for the year
 	  for (var i = 0; i < 365; i += 1) {
+	    // Generate all empty dates records
 	
 	    var date = (0, _formatDate2.default)(date_pointer);
 	
@@ -26360,25 +26358,18 @@
 	    date_pointer.setDate(date_pointer.getDate() - 1);
 	  }
 	
-	  // Generate 25 slots for match history
-	  for (var i = 0; i < 25; i += 1) {
-	    recent_games.push({});
-	  }
+	  state.dates = dates;
 	
-	  return state = {
-	    dates: dates,
-	    recent_games: recent_games,
-	    most_played: most_played,
-	    longest_streak: longest_streak,
-	    current_streak: current_streak,
-	    total_games: total_games,
-	    player: player,
-	    today: today,
-	    last_year: last_year
-	  };
+	  // Reset the recent matches
+	  state.recent_games = [];
+	  for (var i = 0; i < 25; i += 1) {
+	    // Generate 25 blank slots for match history
+	    state.recent_games.push({});
+	  }
 	};
 	
 	var fetchNewPlayer = function fetchNewPlayer(state) {
+	  resetState(state);
 	  var scriptEl = document.createElement('script');
 	
 	  window.updateStateWithNewData = (function (data) {
@@ -26505,7 +26496,7 @@
 	  console.log(action);
 	  switch (action.type) {
 	    case "@@redux/INIT":
-	      state = initializeState(state);
+	      state = resetState(state);
 	      break;
 	    case "urlUpdated":
 	      fetchNewPlayer(state);
