@@ -26011,159 +26011,182 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'content' },
+	        { className: 'container' },
 	        _react2.default.createElement(
-	          'profile-container',
+	          'header',
 	          null,
-	          _react2.default.createElement('avatar', null),
 	          _react2.default.createElement(
-	            'playertag',
-	            null,
+	            'form',
+	            { id: 'profile-search' },
 	            _react2.default.createElement(
-	              'span',
-	              { className: 'card-name' },
-	              this.state.player.name
+	              'label',
+	              { 'for': 'bnet_url' },
+	              'Paste Battle.net URL here'
 	            ),
+	            _react2.default.createElement('input', { id: 'bnet_url', name: 'bnet_url', type: 'text' }),
 	            _react2.default.createElement(
-	              'span',
-	              { className: 'card-clantag' },
-	              clan_tag
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'mainrace',
-	            null,
-	            _react2.default.createElement(
-	              'span',
-	              { className: 'card-race' },
-	              this.state.player.primary_race
+	              'button',
+	              null,
+	              'Go'
 	            )
 	          )
 	        ),
 	        _react2.default.createElement(
-	          'stats-container',
-	          null,
+	          'div',
+	          { className: 'content' },
 	          _react2.default.createElement(
-	            'div',
-	            { className: 'summary' },
+	            'profile-container',
+	            null,
+	            _react2.default.createElement('avatar', null),
 	            _react2.default.createElement(
-	              'statcards',
+	              'playertag',
 	              null,
 	              _react2.default.createElement(
-	                'games_count',
-	                null,
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'section-title' },
-	                  ' Games in the last year '
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'section-content' },
-	                  _react2.default.createElement(
-	                    'span',
-	                    { className: 'stat-value' },
-	                    this.state.total_games,
-	                    ' games'
-	                  ),
-	                  _react2.default.createElement(
-	                    'span',
-	                    { className: 'stat-daterange' },
-	                    this.state.last_year,
-	                    ' - ',
-	                    this.state.today
-	                  )
-	                )
+	                'span',
+	                { className: 'card-name' },
+	                this.state.player.name
 	              ),
 	              _react2.default.createElement(
-	                'games_count',
-	                null,
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'section-title' },
-	                  'Longest Play Streak'
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'section-content' },
-	                  _react2.default.createElement(
-	                    'span',
-	                    { className: 'stat-value' },
-	                    this.state.longest_streak,
-	                    ' days'
-	                  ),
-	                  _react2.default.createElement(
-	                    'span',
-	                    { className: 'stat-daterange' },
-	                    this.state.last_year,
-	                    ' - ',
-	                    this.state.today
-	                  )
-	                )
-	              ),
+	                'span',
+	                { className: 'card-clantag' },
+	                clan_tag
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'mainrace',
+	              null,
 	              _react2.default.createElement(
-	                'games_count',
-	                null,
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'section-title' },
-	                  'Current Play Streak'
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'section-content' },
-	                  _react2.default.createElement(
-	                    'span',
-	                    { className: 'stat-value' },
-	                    this.state.current_streak,
-	                    ' days'
-	                  ),
-	                  _react2.default.createElement(
-	                    'span',
-	                    { className: 'stat-daterange' },
-	                    this.state.last_year,
-	                    ' - ',
-	                    this.state.today
-	                  )
-	                )
+	                'span',
+	                { className: 'card-race' },
+	                this.state.player.primary_race
 	              )
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'grid',
+	            'stats-container',
 	            null,
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'section-title' },
-	              'Games History '
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'box-container' },
-	              boxes.reverse()
-	            ),
-	            _react2.default.createElement(
-	              'p',
-	              { className: 'grid-instructions' },
-	              'Hover on the green boxes to see how many custom / ladder games you played that day'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'recentgames',
-	            null,
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'games-history-heading' },
+	              { className: 'summary' },
 	              _react2.default.createElement(
-	                'h3',
+	                'statcards',
 	                null,
-	                'Last 20'
+	                _react2.default.createElement(
+	                  'games_count',
+	                  null,
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'section-title' },
+	                    ' Games in the last year '
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'section-content' },
+	                    _react2.default.createElement(
+	                      'span',
+	                      { className: 'stat-value' },
+	                      this.state.total_games,
+	                      ' games'
+	                    ),
+	                    _react2.default.createElement(
+	                      'span',
+	                      { className: 'stat-daterange' },
+	                      this.state.last_year,
+	                      ' - ',
+	                      this.state.today
+	                    )
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'games_count',
+	                  null,
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'section-title' },
+	                    'Longest Play Streak'
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'section-content' },
+	                    _react2.default.createElement(
+	                      'span',
+	                      { className: 'stat-value' },
+	                      this.state.longest_streak,
+	                      ' days'
+	                    ),
+	                    _react2.default.createElement(
+	                      'span',
+	                      { className: 'stat-daterange' },
+	                      this.state.last_year,
+	                      ' - ',
+	                      this.state.today
+	                    )
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'games_count',
+	                  null,
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'section-title' },
+	                    'Current Play Streak'
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'section-content' },
+	                    _react2.default.createElement(
+	                      'span',
+	                      { className: 'stat-value' },
+	                      this.state.current_streak,
+	                      ' days'
+	                    ),
+	                    _react2.default.createElement(
+	                      'span',
+	                      { className: 'stat-daterange' },
+	                      this.state.last_year,
+	                      ' - ',
+	                      this.state.today
+	                    )
+	                  )
+	                )
 	              )
 	            ),
 	            _react2.default.createElement(
-	              'ul',
+	              'grid',
 	              null,
-	              recent_games.reverse()
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'section-title' },
+	                'Games History '
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'box-container' },
+	                boxes.reverse()
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                { className: 'grid-instructions' },
+	                'Hover on the green boxes to see how many custom / ladder games you played that day'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'recentgames',
+	              null,
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'games-history-heading' },
+	                _react2.default.createElement(
+	                  'h3',
+	                  null,
+	                  'Last 20'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'ul',
+	                null,
+	                recent_games.reverse()
+	              )
 	            )
 	          )
 	        )
