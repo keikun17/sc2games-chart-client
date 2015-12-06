@@ -14,7 +14,8 @@ export default class App extends React.Component  {
 
   componentWillMount() {
     app_store.subscribe(() =>{
-      console.log("CHANGE DETECTED")
+      console.log("------------------")
+      console.log("Change detected")
       this.setState(app_store.getState())
     })
 
@@ -31,9 +32,7 @@ export default class App extends React.Component  {
   }
 
   render() {
-    console.log("RENDERING")
-    console.log("states are")
-    console.log(this.state)
+    console.log("Rendering")
 
     var boxes = []
 

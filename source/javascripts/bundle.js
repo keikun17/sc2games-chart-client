@@ -25937,7 +25937,8 @@
 	      var _this = this;
 	
 	      _app_store2.default.subscribe(function () {
-	        console.log("CHANGE DETECTED");
+	        console.log("------------------");
+	        console.log("Change detected");
 	        _this.setState(_app_store2.default.getState());
 	      });
 	
@@ -25955,9 +25956,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log("RENDERING");
-	      console.log("states are");
-	      console.log(this.state);
+	      console.log("Rendering");
 	
 	      var boxes = [];
 	
