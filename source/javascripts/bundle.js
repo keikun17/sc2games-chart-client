@@ -25899,6 +25899,10 @@
 	
 	var _box2 = _interopRequireDefault(_box);
 	
+	var _bnet_fetcher = __webpack_require__(/*! ./bnet_fetcher */ 364);
+	
+	var _bnet_fetcher2 = _interopRequireDefault(_bnet_fetcher);
+	
 	var _app_store = __webpack_require__(/*! ./../stores/app_store */ 351);
 	
 	var _app_store2 = _interopRequireDefault(_app_store);
@@ -25917,6 +25921,15 @@
 	
 	var App = (function (_React$Component) {
 	  _inherits(App, _React$Component);
+	
+	  function App(props) {
+	    _classCallCheck(this, App);
+	
+	    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+	
+	    _this2.state = _app_store2.default.getState();
+	    return _this2;
+	  }
 	
 	  _createClass(App, [{
 	    key: 'componentWillMount',
@@ -25939,18 +25952,7 @@
 	        player_name: player_name
 	      });
 	    }
-	  }]);
-	
-	  function App(props) {
-	    _classCallCheck(this, App);
-	
-	    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
-	
-	    _this2.state = _app_store2.default.getState();
-	    return _this2;
-	  }
-	
-	  _createClass(App, [{
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      console.log("RENDERING");
@@ -26015,21 +26017,7 @@
 	        _react2.default.createElement(
 	          'header',
 	          null,
-	          _react2.default.createElement(
-	            'form',
-	            { id: 'profile-search' },
-	            _react2.default.createElement(
-	              'label',
-	              { 'for': 'bnet_url' },
-	              'Paste Battle.net URL here'
-	            ),
-	            _react2.default.createElement('input', { id: 'bnet_url', name: 'bnet_url', type: 'text' }),
-	            _react2.default.createElement(
-	              'button',
-	              null,
-	              'Go'
-	            )
-	          )
+	          _react2.default.createElement(_bnet_fetcher2.default, null)
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -27196,6 +27184,86 @@
 	  var results = regex.exec(url);
 	  return results == null ? null : results[1];
 	};
+
+/***/ },
+/* 364 */
+/*!*************************************************************!*\
+  !*** ./source/javascripts/flux/components/bnet_fetcher.es6 ***!
+  \*************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 192);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var BnetFetcher = (function (_React$Component) {
+	  _inherits(BnetFetcher, _React$Component);
+	
+	  function BnetFetcher(props) {
+	    _classCallCheck(this, BnetFetcher);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BnetFetcher).call(this, props));
+	
+	    _this.getProfileFromBnetUrl = _this.getProfileFromBnetUrl.bind(_this);
+	    _this.handleBnetUrlChange = _this.handleBnetUrlChange.bind(_this);
+	    _this.state = {
+	      bnet_url: ""
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(BnetFetcher, [{
+	    key: "handleBnetUrlChange",
+	    value: function handleBnetUrlChange(e) {
+	      this.setState({ bnet_url: e.target.value });
+	    }
+	  }, {
+	    key: "getProfileFromBnetUrl",
+	    value: function getProfileFromBnetUrl(e) {
+	      e.preventDefault();
+	      console.log(this.state.bnet_url);
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "form",
+	        { id: "profile-search", onSubmit: this.getProfileFromBnetUrl },
+	        _react2.default.createElement(
+	          "label",
+	          { htmlFor: "bnet_url" },
+	          "Paste Battle.net URL here"
+	        ),
+	        _react2.default.createElement("input", { id: "bnet_url", name: "bnet_url", type: "text", value: this.state.bnet_url, onChange: this.handleBnetUrlChange }),
+	        _react2.default.createElement(
+	          "button",
+	          null,
+	          "Go"
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return BnetFetcher;
+	})(_react2.default.Component);
+	
+	exports.default = BnetFetcher;
 
 /***/ }
 /******/ ]);

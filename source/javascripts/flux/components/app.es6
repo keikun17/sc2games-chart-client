@@ -1,9 +1,16 @@
 import React from 'react'
 import Box from './box'
+import BnetFetcher from './bnet_fetcher'
+
 import app_store from './../stores/app_store'
 import getUrlParams from './../../libs/getUrlParams'
 
 export default class App extends React.Component  {
+
+  constructor(props) {
+    super(props)
+    this.state = app_store.getState()
+  }
 
   componentWillMount() {
     app_store.subscribe(() =>{
@@ -21,11 +28,6 @@ export default class App extends React.Component  {
                        player_id: player_id,
                        player_name: player_name
     })
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = app_store.getState()
   }
 
   render() {
@@ -59,11 +61,7 @@ export default class App extends React.Component  {
 
     return <div className="container">
       <header>
-        <form id="profile-search">
-        <label for="bnet_url">Paste Battle.net URL here</label>
-            <input id="bnet_url" name="bnet_url" type="text" />
-            <button>Go</button>
-        </form>
+        <BnetFetcher />
       </header>
       <div className="content">
 
