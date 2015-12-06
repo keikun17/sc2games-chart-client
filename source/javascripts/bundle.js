@@ -27192,7 +27192,7 @@
   \*************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 	
@@ -27229,32 +27229,67 @@
 	  }
 	
 	  _createClass(BnetFetcher, [{
-	    key: "handleBnetUrlChange",
+	    key: 'handleBnetUrlChange',
 	    value: function handleBnetUrlChange(e) {
 	      this.setState({ bnet_url: e.target.value });
 	    }
 	  }, {
-	    key: "getProfileFromBnetUrl",
+	    key: 'getProfileFromBnetUrl',
 	    value: function getProfileFromBnetUrl(e) {
 	      e.preventDefault();
-	      console.log(this.state.bnet_url);
+	      this.getBnetAttributesFromUrl(this.state.bnet_url);
 	    }
 	  }, {
-	    key: "render",
+	    key: 'getBnetAttributesFromUrl',
+	    value: function getBnetAttributesFromUrl(bnet_url) {
+	      var parser = document.createElement('a');
+	      parser.href = bnet_url;
+	      var pathnames = parser.pathname.split('/').filter(function (y) {
+	        return y != "";
+	      });
+	      // > ["sc2", "en", "profile", "2143215", "1", "PlayerOne"]
+	
+	      // get region
+	      var region = parser.hostname.split('.')[0];
+	
+	      // get player_id
+	      var player_id = pathnames[3];
+	
+	      // get r_id =
+	      var r_id = pathnames[4];
+	
+	      // get PlayerName
+	      var player_name = pathnames[5];
+	
+	      // get player_digit
+	
+	      // get player_name
+	      var attrs = {
+	        region: region,
+	        player_id: player_id,
+	        r_id: r_id,
+	        player_name: player_name
+	      };
+	
+	      console.log(attrs);
+	      return attrs;
+	    }
+	  }, {
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "form",
-	        { id: "profile-search", onSubmit: this.getProfileFromBnetUrl },
+	        'form',
+	        { id: 'profile-search', onSubmit: this.getProfileFromBnetUrl },
 	        _react2.default.createElement(
-	          "label",
-	          { htmlFor: "bnet_url" },
-	          "Paste Battle.net URL here"
+	          'label',
+	          { htmlFor: 'bnet_url' },
+	          'Paste Battle.net URL here'
 	        ),
-	        _react2.default.createElement("input", { id: "bnet_url", name: "bnet_url", type: "text", value: this.state.bnet_url, onChange: this.handleBnetUrlChange }),
+	        _react2.default.createElement('input', { id: 'bnet_url', name: 'bnet_url', type: 'text', value: this.state.bnet_url, onChange: this.handleBnetUrlChange }),
 	        _react2.default.createElement(
-	          "button",
+	          'button',
 	          null,
-	          "Go"
+	          'Go'
 	        )
 	      );
 	    }
