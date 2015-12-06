@@ -26012,7 +26012,6 @@
 	        clan_tag = '' + this.state.player.clan_tag;
 	      }
 	
-	      console.log("PLAYUER IS");
 	      if (this.state.player.name !== "") {
 	        var player_records = _react2.default.createElement(
 	          'div',
@@ -26420,11 +26419,20 @@
 	          { htmlFor: 'bnet_url' },
 	          'Paste Battle.net URL here'
 	        ),
-	        _react2.default.createElement('input', { id: 'bnet_url', name: 'bnet_url', type: 'text', value: this.state.bnet_url, onChange: this.handleBnetUrlChange }),
 	        _react2.default.createElement(
-	          'button',
+	          'div',
 	          null,
-	          'Go'
+	          _react2.default.createElement('input', { id: 'bnet_url', name: 'bnet_url', type: 'text', value: this.state.bnet_url, onChange: this.handleBnetUrlChange }),
+	          _react2.default.createElement(
+	            'button',
+	            null,
+	            'Go'
+	          ),
+	          _react2.default.createElement(
+	            'example',
+	            null,
+	            'ex: "http://us.battle.net/sc2/en/profile/2143215/1/PlayerOne/"'
+	          )
 	        )
 	      );
 	    }

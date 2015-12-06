@@ -60,7 +60,6 @@ export default class App extends React.Component  {
       clan_tag = `${this.state.player.clan_tag}`
     }
 
-    console.log("PLAYUER IS")
     if(this.state.player.name !== "") {
       var player_records = <div className="content">
           <profile-container>
