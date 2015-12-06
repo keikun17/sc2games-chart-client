@@ -147,14 +147,13 @@ var fetchNewPlayer = (state) => {
 
   var region = getUrlParams('region', window.location)
   var player_id = getUrlParams('player_id', window.location)
+  var r_id = getUrlParams('r_id', window.location)
   var player_name = getUrlParams('player_name', window.location)
 
-  scriptEl.setAttribute(
-    'src',
-    // `http://10.126.45.140:3001/${region}/${player_id}/${player_name}?callback=updateGrid`
-    // `https://afternoon-depths-7202.herokuapp.com/${region}/${player_id}/${player_name}?callback=updateGrid`
-    `https://afternoon-depths-7202.herokuapp.com/${region}/${player_id}/${player_name}?callback=updateStateWithNewData`
-  )
+  var profile_url = `https://afternoon-depths-7202.herokuapp.com/${region}/${player_id}/${r_id}/${player_name}?callback=updateStateWithNewData`
+  console.log(`profile URL is ${profile_url}`)
+
+  scriptEl.setAttribute( 'src', profile_url )
   document.body.appendChild(scriptEl);
 }
 

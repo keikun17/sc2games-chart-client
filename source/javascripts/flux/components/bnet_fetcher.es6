@@ -1,9 +1,10 @@
 import React from 'react'
+import AppStore from '../stores/app_store'
 
 export default class BnetFetcher extends React.Component {
   constructor(props) {
     super(props)
-    this.getProfileFromBnetUrl = this.getProfileFromBnetUrl.bind(this)
+    this.redirectToProfile = this.redirectToProfile.bind(this)
     this.handleBnetUrlChange = this.handleBnetUrlChange.bind(this)
     this.state = {
       bnet_url: ""
@@ -15,9 +16,22 @@ export default class BnetFetcher extends React.Component {
     this.setState({bnet_url: e.target.value})
   }
 
-  getProfileFromBnetUrl(e) {
+  redirectToProfile(e) {
     e.preventDefault()
-    this.getBnetAttributesFromUrl(this.state.bnet_url)
+    var profile = this.getBnetAttributesFromUrl(this.state.bnet_url)
+
+    var region = profile.region
+    var r_id = profile.r_id
+    var player_id = profile.player_id
+    var player_name = profile.player_name
+
+    console.log("profile is")
+    console.log(profile)
+
+
+
+    // redirect to new page with the player details in the url as params
+    window.location.search = `?region=${region}&player_id=${player_id}&r_id=${r_id}&player_name=${player_name}`
   }
 
   getBnetAttributesFromUrl(bnet_url){
@@ -48,12 +62,11 @@ export default class BnetFetcher extends React.Component {
       player_name: player_name,
     }
 
-    console.log(attrs)
     return attrs
   }
 
   render() {
-    return <form id="profile-search" onSubmit={this.getProfileFromBnetUrl}>
+    return <form id="profile-search" onSubmit={this.redirectToProfile}>
       <label htmlFor="bnet_url">Paste Battle.net URL here</label>
         <input id="bnet_url" name="bnet_url" type="text" value={this.state.bnet_url} onChange={this.handleBnetUrlChange} />
       <button>Go</button>
