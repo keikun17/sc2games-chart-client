@@ -60,77 +60,80 @@ export default class App extends React.Component  {
       clan_tag = `${this.state.player.clan_tag}`
     }
 
+    console.log("PLAYUER IS")
+    if(this.state.player.name !== "") {
+      var player_records = <div className="content">
+          <profile-container>
+            <avatar/>
+            <playertag>
+              <span className="card-name">{this.state.player.name}</span>
+              <span className="card-clantag">{clan_tag}</span>
+            </playertag>
+            <mainrace>
+            <span className="card-race">{this.state.player.primary_race}</span>
+            </mainrace>
+          </profile-container>
+
+          <stats-container>
+            <div className="summary">
+              <statcards>
+                <games_count>
+                  <div className="section-title"> Games in the last year </div>
+                  <div className="section-content">
+                    <span className="stat-value">{this.state.total_games} games</span>
+                    <span className="stat-daterange">{this.state.last_year} - {this.state.today}</span>
+                  </div>
+                </games_count>
+
+                <games_count>
+                  <div className="section-title">Longest Play Streak</div>
+                  <div className="section-content">
+                    <span className="stat-value">{this.state.longest_streak} days</span>
+                    <span className="stat-daterange">{this.state.last_year} - {this.state.today}</span>
+                  </div>
+                </games_count>
+
+                <games_count>
+                  <div className="section-title">
+                    Current Play Streak
+                  </div>
+                  <div className="section-content">
+                    <span className="stat-value">{this.state.current_streak} days</span>
+                    <span className="stat-daterange">{this.state.last_year} - {this.state.today}</span>
+                  </div>
+                </games_count>
+              </statcards>
+            </div>
+
+
+            <grid>
+              <div className="section-title">Games History </div>
+              <div className="box-container">
+                {boxes.reverse()}
+              </div>
+              <p className="grid-instructions">
+              Hover on the green boxes to see how many custom / ladder games you played that day
+              </p>
+            </grid>
+
+            <recentgames>
+              <div className="games-history-heading"><h3>Last 20</h3></div>
+              <ul>
+                {recent_games.reverse()}
+              </ul>
+            </recentgames>
+
+
+
+          </stats-container>
+        </div>
+     }
+
     return <div className="container">
       <header>
         <BnetFetcher />
+        {player_records}
       </header>
-      <div className="content">
-
-
-        <profile-container>
-          <avatar/>
-          <playertag>
-            <span className="card-name">{this.state.player.name}</span>
-            <span className="card-clantag">{clan_tag}</span>
-          </playertag>
-          <mainrace>
-          <span className="card-race">{this.state.player.primary_race}</span>
-          </mainrace>
-        </profile-container>
-
-        <stats-container>
-          <div className="summary">
-            <statcards>
-              <games_count>
-                <div className="section-title"> Games in the last year </div>
-                <div className="section-content">
-                  <span className="stat-value">{this.state.total_games} games</span>
-                  <span className="stat-daterange">{this.state.last_year} - {this.state.today}</span>
-                </div>
-              </games_count>
-
-              <games_count>
-                <div className="section-title">Longest Play Streak</div>
-                <div className="section-content">
-                  <span className="stat-value">{this.state.longest_streak} days</span>
-                  <span className="stat-daterange">{this.state.last_year} - {this.state.today}</span>
-                </div>
-              </games_count>
-
-              <games_count>
-                <div className="section-title">
-                  Current Play Streak
-                </div>
-                <div className="section-content">
-                  <span className="stat-value">{this.state.current_streak} days</span>
-                  <span className="stat-daterange">{this.state.last_year} - {this.state.today}</span>
-                </div>
-              </games_count>
-            </statcards>
-          </div>
-
-
-          <grid>
-            <div className="section-title">Games History </div>
-            <div className="box-container">
-              {boxes.reverse()}
-            </div>
-            <p className="grid-instructions">
-            Hover on the green boxes to see how many custom / ladder games you played that day
-            </p>
-          </grid>
-
-          <recentgames>
-            <div className="games-history-heading"><h3>Last 20</h3></div>
-            <ul>
-              {recent_games.reverse()}
-            </ul>
-          </recentgames>
-
-
-
-        </stats-container>
-      </div>
     </div>
   }
 }

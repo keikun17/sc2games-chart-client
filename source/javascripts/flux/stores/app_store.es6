@@ -13,7 +13,7 @@ var initial_state  = {
   last_year: "",
 
   player: {
-    name: "- Not Loading -",
+    name: "",
     clan_tag: "",
     primary_race: ""
   }
@@ -27,7 +27,7 @@ var resetState = (state) => {
   state.total_games = 0
 
   state.player = {
-    name: "Loading",
+    name: "",
     clan_tag: "",
     primary_race: ""
   }
