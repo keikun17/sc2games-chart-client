@@ -25943,12 +25943,14 @@
 	      });
 	
 	      var region = (0, _getUrlParams2.default)('region', window.location);
+	      var r_id = (0, _getUrlParams2.default)('r_id', window.location);
 	      var player_id = (0, _getUrlParams2.default)('player_id', window.location);
 	      var player_name = (0, _getUrlParams2.default)('player_name', window.location);
 	
 	      window.app_store = _app_store2.default;
 	      _app_store2.default.dispatch({ type: 'urlUpdated',
 	        region: region,
+	        r_id: r_id,
 	        player_id: player_id,
 	        player_name: player_name
 	      });

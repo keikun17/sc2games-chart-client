@@ -20,12 +20,14 @@ export default class App extends React.Component  {
     })
 
     var region = getUrlParams('region', window.location)
+    var r_id = getUrlParams('r_id', window.location)
     var player_id = getUrlParams('player_id', window.location)
     var player_name = getUrlParams('player_name', window.location)
 
     window.app_store = app_store
     app_store.dispatch({type: 'urlUpdated',
                        region: region,
+                       r_id: r_id,
                        player_id: player_id,
                        player_name: player_name
     })
