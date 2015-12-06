@@ -26180,9 +26180,9 @@
 	        _react2.default.createElement(
 	          'header',
 	          null,
-	          _react2.default.createElement(_bnet_fetcher2.default, null),
-	          player_records
-	        )
+	          _react2.default.createElement(_bnet_fetcher2.default, null)
+	        ),
+	        player_records
 	      );
 	    }
 	  }]);
@@ -26417,7 +26417,7 @@
 	        _react2.default.createElement(
 	          'label',
 	          { htmlFor: 'bnet_url' },
-	          'Paste Battle.net URL here'
+	          'Paste Your Battle.net URL here'
 	        ),
 	        _react2.default.createElement(
 	          'div',

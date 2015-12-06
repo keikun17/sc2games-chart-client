@@ -131,8 +131,8 @@ export default class App extends React.Component  {
     return <div className="container">
       <header>
         <BnetFetcher />
-        {player_records}
       </header>
+      {player_records}
     </div>
   }
 }
