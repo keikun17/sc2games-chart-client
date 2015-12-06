@@ -67,11 +67,11 @@ export default class BnetFetcher extends React.Component {
 
   render() {
     return <form id="profile-search" onSubmit={this.redirectToProfile}>
-      <label htmlFor="bnet_url">Paste Battle.net URL here</label>
+      <label htmlFor="bnet_url">Paste Your Battle.net URL here</label>
       <div>
-      <input id="bnet_url" name="bnet_url" type="text" value={this.state.bnet_url} onChange={this.handleBnetUrlChange} />
-      <button>Go</button>
-      <example>ex: "http://us.battle.net/sc2/en/profile/2143215/1/PlayerOne/"</example>
+        <input id="bnet_url" name="bnet_url" type="text" value={this.state.bnet_url} onChange={this.handleBnetUrlChange} />
+        <button>Go</button>
+        <example>ex: "http://us.battle.net/sc2/en/profile/2143215/1/PlayerOne/"</example>
       </div>
     </form>
   }
