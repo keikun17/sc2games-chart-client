@@ -13,7 +13,7 @@ body
   flex-direction: column
 
 header
-  width: 100%
+  // width: 100%
   background-color: #fafafa
   padding: 10px 0 10px 30px
 
@@ -28,11 +28,27 @@ form#profile-search
   display: flex
   justify-content: center
 
+
+  @media(max-width: 780px)
+    flex-direction: column
+    align-items: center
+  @media(min-width: 780px)
+    flex-direction: row
+
+  .fields-container
+    @media(max-width: 780px)
+      text-align: center
+
   label
     padding-right: 5px
 
   input
-    width: 500px
+    @media(max-width: 780px)
+      flex-direction: column
+      align-items: center
+    @media(min-width: 780px)
+      flex-direction: row
+      width: 680px
     padding-left: 5px
 
   example
@@ -112,6 +128,12 @@ recentgames
 statcards
   display: flex
   width: 100%
+
+  @media(max-width: 780px)
+    flex-direction: column
+  @media(min-width: 780px)
+    flex-direction: row
+
 
 games_count
   flex: 1 1

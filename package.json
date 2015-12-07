@@ -17,9 +17,11 @@
     "babel-runtime": "^6.2.0",
     "chai": "^3.4.1",
     "flux": "^2.1.1",
+    "history": "^1.14.0",
     "mocha": "^2.3.3",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
+    "react-router": "^1.0.1",
     "redux": "^3.0.4",
     "sinon": "^1.17.2",
     "webpack": "^1.12.6"

@@ -1,4 +1,7 @@
 import React from 'react'
+import Router from 'react-router'
+import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
+
 import Box from './box'
 import BnetFetcher from './bnet_fetcher'
 
