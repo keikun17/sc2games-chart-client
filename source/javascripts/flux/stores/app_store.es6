@@ -151,6 +151,7 @@ var fetchNewPlayer = (state) => {
   var player_name = getUrlParams('player_name', window.location)
 
   var profile_url = `https://afternoon-depths-7202.herokuapp.com/${region}/${player_id}/${r_id}/${player_name}?callback=updateStateWithNewData`
+  // var profile_url = `http://10.126.45.139:3001/${region}/${player_id}/${r_id}/${player_name}?callback=updateStateWithNewData`
   console.log(`profile URL is ${profile_url}`)
 
   scriptEl.setAttribute( 'src', profile_url )
