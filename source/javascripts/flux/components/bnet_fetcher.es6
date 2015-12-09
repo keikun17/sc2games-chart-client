@@ -13,7 +13,11 @@ export default class BnetFetcher extends React.Component {
 
 
   handleBnetUrlChange(e) {
-    this.setState({bnet_url: e.target.value})
+    var url = e.target.value
+    if((url !== "") && (url.indexOf('http') === -1)){
+      url = "https://" + url
+    }
+    this.setState({bnet_url: url})
   }
 
   redirectToProfile(e) {
