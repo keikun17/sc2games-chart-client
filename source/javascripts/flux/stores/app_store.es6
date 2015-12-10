@@ -6,8 +6,13 @@ var initial_state  = {
   dates: {},
   recent_games: [],
   most_played: 0,
+
   longest_streak: 0,
+  longest_streak_start: "",
+  longest_streak_end: "",
+
   current_streak: 0,
+
   total_games: 0,
   today: "",
   last_year: "",
@@ -74,6 +79,8 @@ var fetchNewPlayer = (state) => {
     var dates = state.dates
     var player = state.player
     var recent_games = state.recent_games
+    var longest_streak_start = ""
+    var longest_streak_end = ""
 
     player.name = data.profile.name
     player.primary_race = data.profile.primary_race
@@ -120,7 +127,9 @@ var fetchNewPlayer = (state) => {
       // Set Longest Streak
       if(current_streak > longest_streak) {
         longest_streak = current_streak
+        longest_streak_end = date
       }
+
 
       // Increment total games
       total_games = total_games + game_count
@@ -131,6 +140,12 @@ var fetchNewPlayer = (state) => {
     var today = tempdate.toDateString().slice(4)
     var last_year = (new Date(tempdate.setFullYear((tempdate.getFullYear() - 1)))).toDateString().slice(4)
 
+    // Compute for Streak Dates
+    if(longest_streak_end != "") {
+      var temp_date = new Date(longest_streak_end)
+      longest_streak_start = formatDate(new Date(temp_date.setDate(temp_date.getDate() - longest_streak)))
+    }
+
     state.dates = dates
     state.most_played = most_played
     state.longest_streak = longest_streak
@@ -140,6 +155,8 @@ var fetchNewPlayer = (state) => {
     state.recent_games = recent_games
     state.today = today
     state.last_year = last_year
+    state.longest_streak_start = longest_streak_start
+    state.longest_streak_end = longest_streak_end
 
     window.app_store.dispatch({type: "apply_changes"})
   }.bind(state)

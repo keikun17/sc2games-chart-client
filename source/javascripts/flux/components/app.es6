@@ -91,7 +91,7 @@ export default class App extends React.Component  {
                   <div className="section-title">Longest Play Streak</div>
                   <div className="section-content">
                     <span className="stat-value">{this.state.longest_streak} days</span>
-                    <span className="stat-daterange">{this.state.last_year} - {this.state.today}</span>
+                    <span className="stat-daterange">{this.state.longest_streak_start} - {this.state.longest_streak_end}</span>
                   </div>
                 </games_count>
 
