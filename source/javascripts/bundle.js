@@ -29888,7 +29888,7 @@
 	    var _iteratorError = undefined;
 
 	    try {
-	      for (var _iterator = data.matches.reverse()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	      for (var _iterator = data.matches[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	        var match = _step.value;
 
 	        var date = (0, _formatDate2.default)(new Date(match.ms_date * 1000));
