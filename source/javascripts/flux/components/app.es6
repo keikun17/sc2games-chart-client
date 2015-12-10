@@ -101,7 +101,7 @@ export default class App extends React.Component  {
                   </div>
                   <div className="section-content">
                     <span className="stat-value">{this.state.current_streak} days</span>
-                    <span className="stat-daterange">{this.state.last_year} - {this.state.today}</span>
+                    <span className="stat-daterange">{this.state.current_streak_start} - {this.state.current_streak_end}</span>
                   </div>
                 </games_count>
               </statcards>
