@@ -79,7 +79,7 @@ var fetchNewPlayer = (state) => {
     player.primary_race = data.profile.primary_race
     player.clan_tag = data.profile.clan_tag
 
-    for (let match of data.matches.reverse()){
+    for (let match of data.matches){
 
       var date = formatDate(new Date(match.ms_date * 1000))
 
@@ -105,7 +105,6 @@ var fetchNewPlayer = (state) => {
 
       recent_games.push(recent_game)
       recent_games.shift()
-
     }
 
     // Compute for Streaks
