@@ -5,6 +5,7 @@ export default class Box extends React.Component {
     super(props)
     this._onMouseOver = this._onMouseOver.bind(this)
     this._onMouseOut = this._onMouseOut.bind(this)
+    this._onClick = this._onClick.bind(this)
     this.state = {
       show_tootltip: false
     }
@@ -13,8 +14,16 @@ export default class Box extends React.Component {
   _onMouseOver() {
     this.setState({show_tooltip: true})
   }
+
   _onMouseOut() {
     this.setState({show_tooltip: false})
+  }
+
+  _onClick() {
+    app_store.dispatch({
+      type: 'toggleDate',
+      date: this.props.date
+    })
   }
 
   render() {
@@ -51,7 +60,7 @@ export default class Box extends React.Component {
     if(this.state.show_tooltip === true){
       tooltip = <box_details>Played {this.props.games_played} games on <box_date>{this.props.date}</box_date></box_details>
     }
-    return  <box className={classname} onMouseOver={this._onMouseOver} onMouseOut={this._onMouseOut}>
+    return  <box className={classname} onClick={this._onClick} onMouseOver={this._onMouseOver} onMouseOut={this._onMouseOut}>
       {tooltip}
     </box>
   }

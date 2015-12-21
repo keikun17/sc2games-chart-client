@@ -3,10 +3,13 @@ import Router from 'react-router'
 import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
 
 import Box from './box'
+import MatchList from './match_list'
+
 import BnetFetcher from './bnet_fetcher'
 
 import app_store from './../stores/app_store'
 import getUrlParams from './../../libs/getUrlParams'
+
 
 export default class App extends React.Component  {
 
@@ -47,16 +50,6 @@ export default class App extends React.Component  {
       boxes.push(<Box key={date} date={date} games_played={games_played} most_played={this.state.most_played}/>)
     }
 
-    var recent_games = []
-    for (var recent_game of this.state.recent_games) {
-      if(typeof(recent_game.map) != 'undefined') {
-        recent_games.push(
-          <li key={this.state.recent_games.indexOf(recent_game)}>
-            {recent_game.date} - {recent_game.game_type} - {recent_game.map} ({recent_game.decision})
-          </li>
-        )
-      }
-    }
 
     var clan_tag = ""
     if(this.state.player.clan_tag !== "") {
@@ -118,14 +111,7 @@ export default class App extends React.Component  {
               </p>
             </grid>
 
-            <recentgames>
-              <div className="games-history-heading"><h3>Last 20</h3></div>
-              <ul>
-                {recent_games.reverse()}
-              </ul>
-            </recentgames>
-
-
+            <MatchList / >
 
           </stats-container>
         </div>
