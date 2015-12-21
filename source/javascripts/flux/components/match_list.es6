@@ -8,16 +8,13 @@ export default class MatchList extends React.Component {
   }
 
   render() {
-    // TODO: DELETE
-    window.kek = this.state
-
     var matches = []
+    var heading
 
     if(this.state.date_selected) {
-      console.log("There is a date")
+      heading = `Games played on ${this.state.date_selected}`
+
       for(var game of this.state.dates[this.state.date_selected].games) {
-        console.log("game is")
-        console.log(game)
         if(typeof(game.map) != 'undefined') {
           matches.push(
             <li key={this.state.dates[this.state.date_selected].games.indexOf(game)}>
@@ -27,6 +24,7 @@ export default class MatchList extends React.Component {
         }
       }
     } else {
+      heading = "Last 25"
 
       for (var recent_game of this.state.recent_games) {
         if(typeof(recent_game.map) != 'undefined') {
@@ -40,7 +38,7 @@ export default class MatchList extends React.Component {
     }
 
     return <recentgames>
-      <div className="games-history-heading"><h3>Last 20</h3></div>
+      <div className="games-history-heading"><h3>{heading}</h3></div>
       <ul>
         {matches.reverse()}
       </ul>
