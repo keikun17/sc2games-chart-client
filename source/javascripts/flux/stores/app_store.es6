@@ -198,6 +198,15 @@ var fetchNewPlayer = (state) => {
 }
 
 
+var toggleDate = (state, date) => {
+  if(state.date_selected) {
+    delete state.date_selected
+  } else {
+    state.date_selected = date
+  }
+
+}
+
 var appReducer = (state = initial_state, action) => {
   console.log("action is")
   console.log(action)
@@ -208,6 +217,8 @@ var appReducer = (state = initial_state, action) => {
     case "urlUpdated":
       fetchNewPlayer(state)
       break
+    case "toggleDate":
+      toggleDate(state, action.date)
     case "apply_changes":
       // NOTE : Blank action. Subscribed components are only rendered when
       // an action has been dispatched. Call this action if you wish to apply
