@@ -24857,15 +24857,15 @@
 
 	var _match_list2 = _interopRequireDefault(_match_list);
 
-	var _bnet_fetcher = __webpack_require__(413);
+	var _bnet_fetcher = __webpack_require__(401);
 
 	var _bnet_fetcher2 = _interopRequireDefault(_bnet_fetcher);
 
-	var _app_store = __webpack_require__(401);
+	var _app_store = __webpack_require__(402);
 
 	var _app_store2 = _interopRequireDefault(_app_store);
 
-	var _getUrlParams = __webpack_require__(412);
+	var _getUrlParams = __webpack_require__(413);
 
 	var _getUrlParams2 = _interopRequireDefault(_getUrlParams);
 
@@ -24897,7 +24897,9 @@
 	      _app_store2.default.subscribe(function () {
 	        console.log("------------------");
 	        console.log("Change detected");
-	        _this.setState(_app_store2.default.getState());
+
+	        _this.state = _app_store2.default.getState();
+	        _this.forceUpdate();
 	      });
 
 	      var region = (0, _getUrlParams2.default)('region', window.location);
@@ -24923,7 +24925,7 @@
 	      for (var date in this.state.dates) {
 	        var games_played = this.state.dates[date].games.length;
 
-	        boxes.push(_react2.default.createElement(_box2.default, { key: date, date: date, games_played: games_played, most_played: this.state.most_played }));
+	        boxes.push(_react2.default.createElement(_box2.default, { date_selected: this.state.date_selected, key: date, date: date, games_played: games_played, most_played: this.state.most_played }));
 	      }
 
 	      var clan_tag = "";
@@ -25071,7 +25073,7 @@
 	                'Hover on the green boxes to see how many custom / ladder games you played that day'
 	              )
 	            ),
-	            _react2.default.createElement(_match_list2.default, null)
+	            _react2.default.createElement(_match_list2.default, { date_selected: this.state.date_selected, dates: this.state.dates, recent_games: this.state.recent_games })
 	          )
 	        );
 	      }
@@ -29508,6 +29510,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
+
 	var Box = (function (_React$Component) {
 	  _inherits(Box, _React$Component);
 
@@ -29574,6 +29578,10 @@
 	        classname = 'none';
 	      }
 
+	      if (_typeof(this.props.date_selected) && this.props.date_selected != this.props.date) {
+	        classname = classname + " muted";
+	      }
+
 	      var tooltip;
 
 	      if (this.state.show_tooltip === true) {
@@ -29619,10 +29627,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _app_store = __webpack_require__(401);
-
-	var _app_store2 = _interopRequireDefault(_app_store);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29637,10 +29641,7 @@
 	  function MatchList(props) {
 	    _classCallCheck(this, MatchList);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MatchList).call(this, props));
-
-	    _this.state = _app_store2.default.getState();
-	    return _this;
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(MatchList).call(this, props));
 	  }
 
 	  _createClass(MatchList, [{
@@ -29649,22 +29650,22 @@
 	      var matches = [];
 	      var heading;
 
-	      if (this.state.date_selected) {
-	        heading = 'Games played on ' + this.state.date_selected;
+	      if (this.props.date_selected) {
+	        var heading = 'Games played on ' + this.props.date_selected;
 
 	        var _iteratorNormalCompletion = true;
 	        var _didIteratorError = false;
 	        var _iteratorError = undefined;
 
 	        try {
-	          for (var _iterator = this.state.dates[this.state.date_selected].games[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	          for (var _iterator = this.props.dates[this.props.date_selected].games[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	            var game = _step.value;
 
 	            if (typeof game.map != 'undefined') {
 	              matches.push(_react2.default.createElement(
 	                'li',
-	                { key: this.state.dates[this.state.date_selected].games.indexOf(game) },
-	                this.state.date_selected,
+	                { key: this.props.dates[this.props.date_selected].games.indexOf(game) },
+	                this.props.date_selected,
 	                ' - ',
 	                game.game_type,
 	                ' - ',
@@ -29690,6 +29691,7 @@
 	          }
 	        }
 	      } else {
+	        console.log("THERE ARE NO DATES SELECTED");
 	        heading = "Last 25";
 
 	        var _iteratorNormalCompletion2 = true;
@@ -29697,13 +29699,13 @@
 	        var _iteratorError2 = undefined;
 
 	        try {
-	          for (var _iterator2 = this.state.recent_games[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	          for (var _iterator2 = this.props.recent_games[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	            var recent_game = _step2.value;
 
 	            if (typeof recent_game.map != 'undefined') {
 	              matches.push(_react2.default.createElement(
 	                'li',
-	                { key: this.state.recent_games.indexOf(recent_game) },
+	                { key: this.props.recent_games.indexOf(recent_game) },
 	                recent_game.date,
 	                ' - ',
 	                recent_game.game_type,
@@ -29763,17 +29765,156 @@
 
 	'use strict';
 
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
-	var _redux = __webpack_require__(402);
+	var _react = __webpack_require__(192);
 
-	var _formatDate = __webpack_require__(411);
+	var _react2 = _interopRequireDefault(_react);
+
+	var _app_store = __webpack_require__(402);
+
+	var _app_store2 = _interopRequireDefault(_app_store);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var BnetFetcher = (function (_React$Component) {
+	  _inherits(BnetFetcher, _React$Component);
+
+	  function BnetFetcher(props) {
+	    _classCallCheck(this, BnetFetcher);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BnetFetcher).call(this, props));
+
+	    _this.redirectToProfile = _this.redirectToProfile.bind(_this);
+	    _this.handleBnetUrlChange = _this.handleBnetUrlChange.bind(_this);
+	    _this.state = {
+	      bnet_url: ""
+	    };
+	    return _this;
+	  }
+
+	  _createClass(BnetFetcher, [{
+	    key: 'handleBnetUrlChange',
+	    value: function handleBnetUrlChange(e) {
+	      var url = e.target.value;
+	      if (url !== "" && url.indexOf('http') === -1) {
+	        url = "https://" + url;
+	      }
+	      this.setState({ bnet_url: url });
+	    }
+	  }, {
+	    key: 'redirectToProfile',
+	    value: function redirectToProfile(e) {
+	      e.preventDefault();
+	      var profile = this.getBnetAttributesFromUrl(this.state.bnet_url);
+
+	      var region = profile.region;
+	      var r_id = profile.r_id;
+	      var player_id = profile.player_id;
+	      var player_name = profile.player_name;
+
+	      console.log("profile is");
+	      console.log(profile);
+
+	      // redirect to new page with the player details in the url as params
+	      window.location.search = '?region=' + region + '&player_id=' + player_id + '&r_id=' + r_id + '&player_name=' + player_name;
+	    }
+	  }, {
+	    key: 'getBnetAttributesFromUrl',
+	    value: function getBnetAttributesFromUrl(bnet_url) {
+	      var parser = document.createElement('a');
+	      parser.href = bnet_url;
+	      var pathnames = parser.pathname.split('/').filter(function (y) {
+	        return y != "";
+	      });
+	      // > ["sc2", "en", "profile", "2143215", "1", "PlayerOne"]
+
+	      // get region
+	      var region = parser.hostname.split('.')[0];
+
+	      // get player_id
+	      var player_id = pathnames[3];
+
+	      // get r_id =
+	      var r_id = pathnames[4];
+
+	      // get PlayerName
+	      var player_name = pathnames[5];
+
+	      // get player_digit
+
+	      // get player_name
+	      var attrs = {
+	        region: region,
+	        player_id: player_id,
+	        r_id: r_id,
+	        player_name: player_name
+	      };
+
+	      return attrs;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'form',
+	        { id: 'profile-search', onSubmit: this.redirectToProfile },
+	        _react2.default.createElement(
+	          'label',
+	          { htmlFor: 'bnet_url' },
+	          'Paste Your Battle.net URL here'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'fields-container' },
+	          _react2.default.createElement('input', { id: 'bnet_url', name: 'bnet_url', type: 'text', value: this.state.bnet_url, onChange: this.handleBnetUrlChange }),
+	          _react2.default.createElement(
+	            'button',
+	            null,
+	            'Go'
+	          ),
+	          _react2.default.createElement(
+	            'example',
+	            null,
+	            'ex: "http://us.battle.net/sc2/en/profile/2143215/1/PlayerOne/"'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return BnetFetcher;
+	})(_react2.default.Component);
+
+	exports.default = BnetFetcher;
+
+/***/ },
+/* 402 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _redux = __webpack_require__(403);
+
+	var _formatDate = __webpack_require__(412);
 
 	var _formatDate2 = _interopRequireDefault(_formatDate);
 
-	var _getUrlParams = __webpack_require__(412);
+	var _getUrlParams = __webpack_require__(413);
 
 	var _getUrlParams2 = _interopRequireDefault(_getUrlParams);
 
@@ -29932,11 +30073,9 @@
 	      game_count = dates[date].games.length;
 	      // Set the Current Streak
 	      if (game_count > 0) {
-	        console.log("streaking");
 	        current_streak += 1;
 	        current_streak_end = date;
 	      } else {
-	        console.log('streak stopped on ' + date);
 	        current_streak = 0;
 	        current_streak_end = "";
 	      }
@@ -30036,7 +30175,7 @@
 	exports.default = store;
 
 /***/ },
-/* 402 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30045,23 +30184,23 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _createStore = __webpack_require__(403);
+	var _createStore = __webpack_require__(404);
 
 	var _createStore2 = _interopRequireDefault(_createStore);
 
-	var _utilsCombineReducers = __webpack_require__(405);
+	var _utilsCombineReducers = __webpack_require__(406);
 
 	var _utilsCombineReducers2 = _interopRequireDefault(_utilsCombineReducers);
 
-	var _utilsBindActionCreators = __webpack_require__(408);
+	var _utilsBindActionCreators = __webpack_require__(409);
 
 	var _utilsBindActionCreators2 = _interopRequireDefault(_utilsBindActionCreators);
 
-	var _utilsApplyMiddleware = __webpack_require__(409);
+	var _utilsApplyMiddleware = __webpack_require__(410);
 
 	var _utilsApplyMiddleware2 = _interopRequireDefault(_utilsApplyMiddleware);
 
-	var _utilsCompose = __webpack_require__(410);
+	var _utilsCompose = __webpack_require__(411);
 
 	var _utilsCompose2 = _interopRequireDefault(_utilsCompose);
 
@@ -30072,7 +30211,7 @@
 	exports.compose = _utilsCompose2['default'];
 
 /***/ },
-/* 403 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30082,7 +30221,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utilsIsPlainObject = __webpack_require__(404);
+	var _utilsIsPlainObject = __webpack_require__(405);
 
 	var _utilsIsPlainObject2 = _interopRequireDefault(_utilsIsPlainObject);
 
@@ -30240,7 +30379,7 @@
 	}
 
 /***/ },
-/* 404 */
+/* 405 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30275,7 +30414,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 405 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -30285,17 +30424,17 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _createStore = __webpack_require__(403);
+	var _createStore = __webpack_require__(404);
 
-	var _utilsIsPlainObject = __webpack_require__(404);
+	var _utilsIsPlainObject = __webpack_require__(405);
 
 	var _utilsIsPlainObject2 = _interopRequireDefault(_utilsIsPlainObject);
 
-	var _utilsMapValues = __webpack_require__(406);
+	var _utilsMapValues = __webpack_require__(407);
 
 	var _utilsMapValues2 = _interopRequireDefault(_utilsMapValues);
 
-	var _utilsPick = __webpack_require__(407);
+	var _utilsPick = __webpack_require__(408);
 
 	var _utilsPick2 = _interopRequireDefault(_utilsPick);
 
@@ -30412,7 +30551,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(190)))
 
 /***/ },
-/* 406 */
+/* 407 */
 /***/ function(module, exports) {
 
 	/**
@@ -30437,7 +30576,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 407 */
+/* 408 */
 /***/ function(module, exports) {
 
 	/**
@@ -30464,7 +30603,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 408 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30474,7 +30613,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utilsMapValues = __webpack_require__(406);
+	var _utilsMapValues = __webpack_require__(407);
 
 	var _utilsMapValues2 = _interopRequireDefault(_utilsMapValues);
 
@@ -30524,7 +30663,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 409 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30537,7 +30676,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _compose = __webpack_require__(410);
+	var _compose = __webpack_require__(411);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
@@ -30590,7 +30729,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 410 */
+/* 411 */
 /***/ function(module, exports) {
 
 	/**
@@ -30620,7 +30759,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 411 */
+/* 412 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30640,7 +30779,7 @@
 	};
 
 /***/ },
-/* 412 */
+/* 413 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -30657,145 +30796,6 @@
 	  var results = regex.exec(url);
 	  return results == null ? null : results[1];
 	};
-
-/***/ },
-/* 413 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(192);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _app_store = __webpack_require__(401);
-
-	var _app_store2 = _interopRequireDefault(_app_store);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var BnetFetcher = (function (_React$Component) {
-	  _inherits(BnetFetcher, _React$Component);
-
-	  function BnetFetcher(props) {
-	    _classCallCheck(this, BnetFetcher);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BnetFetcher).call(this, props));
-
-	    _this.redirectToProfile = _this.redirectToProfile.bind(_this);
-	    _this.handleBnetUrlChange = _this.handleBnetUrlChange.bind(_this);
-	    _this.state = {
-	      bnet_url: ""
-	    };
-	    return _this;
-	  }
-
-	  _createClass(BnetFetcher, [{
-	    key: 'handleBnetUrlChange',
-	    value: function handleBnetUrlChange(e) {
-	      var url = e.target.value;
-	      if (url !== "" && url.indexOf('http') === -1) {
-	        url = "https://" + url;
-	      }
-	      this.setState({ bnet_url: url });
-	    }
-	  }, {
-	    key: 'redirectToProfile',
-	    value: function redirectToProfile(e) {
-	      e.preventDefault();
-	      var profile = this.getBnetAttributesFromUrl(this.state.bnet_url);
-
-	      var region = profile.region;
-	      var r_id = profile.r_id;
-	      var player_id = profile.player_id;
-	      var player_name = profile.player_name;
-
-	      console.log("profile is");
-	      console.log(profile);
-
-	      // redirect to new page with the player details in the url as params
-	      window.location.search = '?region=' + region + '&player_id=' + player_id + '&r_id=' + r_id + '&player_name=' + player_name;
-	    }
-	  }, {
-	    key: 'getBnetAttributesFromUrl',
-	    value: function getBnetAttributesFromUrl(bnet_url) {
-	      var parser = document.createElement('a');
-	      parser.href = bnet_url;
-	      var pathnames = parser.pathname.split('/').filter(function (y) {
-	        return y != "";
-	      });
-	      // > ["sc2", "en", "profile", "2143215", "1", "PlayerOne"]
-
-	      // get region
-	      var region = parser.hostname.split('.')[0];
-
-	      // get player_id
-	      var player_id = pathnames[3];
-
-	      // get r_id =
-	      var r_id = pathnames[4];
-
-	      // get PlayerName
-	      var player_name = pathnames[5];
-
-	      // get player_digit
-
-	      // get player_name
-	      var attrs = {
-	        region: region,
-	        player_id: player_id,
-	        r_id: r_id,
-	        player_name: player_name
-	      };
-
-	      return attrs;
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'form',
-	        { id: 'profile-search', onSubmit: this.redirectToProfile },
-	        _react2.default.createElement(
-	          'label',
-	          { htmlFor: 'bnet_url' },
-	          'Paste Your Battle.net URL here'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'fields-container' },
-	          _react2.default.createElement('input', { id: 'bnet_url', name: 'bnet_url', type: 'text', value: this.state.bnet_url, onChange: this.handleBnetUrlChange }),
-	          _react2.default.createElement(
-	            'button',
-	            null,
-	            'Go'
-	          ),
-	          _react2.default.createElement(
-	            'example',
-	            null,
-	            'ex: "http://us.battle.net/sc2/en/profile/2143215/1/PlayerOne/"'
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return BnetFetcher;
-	})(_react2.default.Component);
-
-	exports.default = BnetFetcher;
 
 /***/ }
 /******/ ]);
