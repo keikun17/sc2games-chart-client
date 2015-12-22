@@ -55,6 +55,10 @@ export default class Box extends React.Component {
       classname = 'none'
     }
 
+    if(typeof(this.props.date_selected) && (this.props.date_selected != this.props.date)) {
+      classname = classname + " muted"
+    }
+
     var tooltip
 
     if(this.state.show_tooltip === true){
