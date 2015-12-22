@@ -22,7 +22,9 @@ export default class App extends React.Component  {
     app_store.subscribe(() =>{
       console.log("------------------")
       console.log("Change detected")
-      this.setState(app_store.getState())
+
+      this.state = app_store.getState()
+      this.forceUpdate()
     })
 
     var region = getUrlParams('region', window.location)
@@ -111,7 +113,7 @@ export default class App extends React.Component  {
               </p>
             </grid>
 
-            <MatchList / >
+            <MatchList date_selected={this.state.date_selected} dates={this.state.dates} recent_games={this.state.recent_games}/ >
 
           </stats-container>
         </div>

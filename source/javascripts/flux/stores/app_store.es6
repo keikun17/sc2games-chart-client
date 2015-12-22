@@ -131,11 +131,9 @@ var fetchNewPlayer = (state) => {
       game_count = dates[date].games.length
       // Set the Current Streak
       if(game_count > 0) {
-        console.log("streaking")
         current_streak += 1
         current_streak_end = date
       } else {
-        console.log(`streak stopped on ${date}`)
         current_streak = 0
         current_streak_end = ""
       }
@@ -204,7 +202,6 @@ var toggleDate = (state, date) => {
   } else {
     state.date_selected = date
   }
-
 }
 
 var appReducer = (state = initial_state, action) => {
