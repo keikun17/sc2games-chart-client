@@ -23,8 +23,7 @@ export default class App extends React.Component  {
       console.log("------------------")
       console.log("Change detected")
 
-      this.state = app_store.getState()
-      this.forceUpdate()
+      this.setState(app_store.getState())
     })
 
     var region = getUrlParams('region', window.location)

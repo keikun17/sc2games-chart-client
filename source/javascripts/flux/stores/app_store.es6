@@ -198,7 +198,7 @@ var fetchNewPlayer = (state) => {
 
 var toggleDate = (state, date) => {
   if(state.date_selected === date) {
-    delete state.date_selected
+    state.date_selected = undefined
   } else {
     state.date_selected = date
   }
