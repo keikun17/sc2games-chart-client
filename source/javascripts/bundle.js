@@ -24898,8 +24898,7 @@
 	        console.log("------------------");
 	        console.log("Change detected");
 
-	        _this.state = _app_store2.default.getState();
-	        _this.forceUpdate();
+	        _this.setState(_app_store2.default.getState());
 	      });
 
 	      var region = (0, _getUrlParams2.default)('region', window.location);
@@ -30135,7 +30134,7 @@
 
 	var toggleDate = function toggleDate(state, date) {
 	  if (state.date_selected === date) {
-	    delete state.date_selected;
+	    state.date_selected = undefined;
 	  } else {
 	    state.date_selected = date;
 	  }
