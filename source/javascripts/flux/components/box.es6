@@ -60,12 +60,18 @@ export default class Box extends React.Component {
     }
 
     var tooltip
-
     if(this.state.show_tooltip === true){
       tooltip = <box_details>Played {this.props.games_played} games on <box_date>{this.props.date}</box_date></box_details>
     }
+
+    var inner_box
+    if(this.props.most_played_date === this.props.date) {
+      var inner_box = "★"
+    }
+
     return  <box className={classname} onClick={this._onClick} onMouseOver={this._onMouseOver} onMouseOut={this._onMouseOut}>
       {tooltip}
+      {inner_box}
     </box>
   }
 }

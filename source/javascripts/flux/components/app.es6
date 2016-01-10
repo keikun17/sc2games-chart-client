@@ -10,7 +10,6 @@ import BnetFetcher from './bnet_fetcher'
 import app_store from './../stores/app_store'
 import getUrlParams from './../../libs/getUrlParams'
 
-
 export default class App extends React.Component  {
 
   constructor(props) {
@@ -48,7 +47,7 @@ export default class App extends React.Component  {
     for (var date in this.state.dates){
       var games_played = this.state.dates[date].games.length
 
-      boxes.push(<Box date_selected={this.state.date_selected} key={date} date={date} games_played={games_played} most_played={this.state.most_played}/>)
+      boxes.push(<Box date_selected={this.state.date_selected} most_played_date={this.state.most_played_date} key={date} date={date} games_played={games_played} most_played={this.state.most_played}/>)
     }
 
 

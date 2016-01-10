@@ -6,6 +6,7 @@ var initial_state  = {
   dates: {},
   recent_games: [],
   most_played: 0,
+  most_played_date: "",
 
   longest_streak: 0,
   longest_streak_start: "",
@@ -76,6 +77,7 @@ var fetchNewPlayer = (state) => {
     // handle requested data from server
 
     var most_played =  0
+    var most_played_date = ""
 
     var longest_streak = 0
     var longest_streak_start = ""
@@ -106,8 +108,9 @@ var fetchNewPlayer = (state) => {
       var game_count = dates[date].games.length
 
       // Set the Most played which should decide what color is assigned for each play-range
-      if(game_count > most_played) {
+      if(game_count >= most_played) {
         most_played = game_count
+        most_played_date = date
       }
 
       // shift match history
@@ -167,6 +170,7 @@ var fetchNewPlayer = (state) => {
 
     state.dates = dates
     state.most_played = most_played
+    state.most_played_date = most_played_date 
     state.longest_streak = longest_streak
     state.current_streak = current_streak
     state.total_games = total_games
