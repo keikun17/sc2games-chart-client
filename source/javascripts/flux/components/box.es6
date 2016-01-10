@@ -65,7 +65,7 @@ export default class Box extends React.Component {
     }
 
     var inner_box
-    if(this.props.most_played_date === this.props.date) {
+    if( this.props.most_played_date === this.props.date ) {
       var inner_box = "★"
     }
 
