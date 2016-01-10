@@ -1,0 +1,54 @@
+.content
+  %profile-container
+    %avatar
+    %playertag
+      %h1 Buddy Magsipoc
+    %mainrace
+      %h2 Test
+
+    %joined
+      Joined Novemebr 11, 2015
+  %stats-container
+    .summary
+
+      %miscstats
+        %games_count
+          .section-title Games in the last year
+          .section-content
+            %span.stat-value 513 total
+            %p Nov 17, 2014 - Nov 17, 2015
+
+        %games_streak
+          .section-title Current Play Streak
+          .section-content
+            %span.stat-value 513 days
+            %p Nov 17, 2014 - Nov 17, 2015
+
+
+
+    %grid
+      .section-title
+        Games History
+
+      .box-container
+        - 26.times do 
+          %box.l1
+          %box.w3
+          %box.l2
+          %box.w1
+          %box.w2
+          %box.none
+          %box.w2
+          %box.l3
+          %box.w3
+          %box.w2
+          %box.none
+          %box.l1
+
+    %recentgames
+      .games-history-heading
+        %h3 Last 20
+
+      %ul
+        - 20.times do 
+          %li 1v1 Lost Temple (WIN)
